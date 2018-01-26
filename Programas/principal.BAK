@@ -1,0 +1,114 @@
+_screen.Visible = .t.
+SET SYSMENU OFF
+CLEAR
+
+_screen.windowstate= 2 
+_screen.closable = .f.
+_screen.MaxButton = .T.
+_screen.AutoCenter = .T.
+_screen.Caption 	= ""
+
+set exclusive OFF
+set date to dmy
+set century on
+set delete on
+set safety off
+SET TALK OFF
+
+set notify off
+set escape off 
+SET CONFIRM ON 
+
+
+DEACTIVATE WINDOW "Project Manager"
+SET DATE TO BRITISH
+ON KEY LABEL CTRL+F4 DO SALIRMENU 
+ON KEY LABEL ESC DO SETEO_ESC 
+ON KEY LABEL CTRL+F11 MESSAGEBOX(_screen.ActiveForm.name)
+
+SET PROCEDURE TO UTILITY.PRG, SALIDA.PRG, SONIDO.PRG, GENERAL.PRG, SQL.PRG 
+SET CLASSLIB TO toolbarsys.vcx
+
+PUBLIC toolbarsys
+toolbarsys = CREATEOBJECT('toolbarsys')
+
+
+
+=LEECONFIG()
+
+*** SETEO  Y DEFINICION DE VARIABLES PUBLICAS Y DE INICIO
+PUBLIC _SYSSERVIDOR , _SYSMENUSYSTEM, _SYSMODULO , _SYSUSUARIO , _SYSVERSION 
+PUBLIC _SYSMASTER_SERVER ,_SYSMASTER_USER, _SYSMASTER_PASS ,_SYSMASTER_USER , _SYSMYSQL_PORT , _SYSMASTER_SCHEMA, _SYSMASTER_DESC 
+ 
+
+PUBLIC SQLMATRIZ(20)
+FOR I = 1 TO 20
+	SQLMATRIZ(I)=""
+ENDFOR 
+
+
+=DEFVARPUBLICAS ('varpublicas')
+
+
+_SYSSERVIDOR 	= FULLPATH(CURDIR())
+_SYSMENUSYSTEM 	= ""
+_SYSMODULO 		= 1
+
+_SYSMASTER_SERVER 	= _SYSMYSQL_SERVER 
+_SYSMASTER_USER	 	= _SYSMYSQL_USER   
+_SYSMASTER_PASS   	= _SYSMYSQL_PASS   
+_SYSMASTER_PORT   	= _SYSMYSQL_PORT   
+_SYSMASTER_SCHEMA  	= _SYSSCHEMA  
+_SYSMASTER_DESC		= _SYSDESCRIP  
+
+_screen.BackColor 	= &_SYSCOLORFONDO
+_screen.Caption 	= _SYSTITULO
+
+
+
+
+I=1
+AUX = _SYSESTACION+"\"+ALLTRIM(STR(I))
+DO WHILE DIRECTORY(AUX)
+	I = I+1
+	AUX = _SYSESTACION+"\"+ALLTRIM(STR(I))
+ENDDO
+IF !DIRECTORY(AUX) then
+	MKDIR(AUX)
+	_SYSESTACION = AUX
+ENDIF
+
+SET DEFAULT TO &_SYSESTACION	
+
+ON SHUTDOWN DO CERRAR_TODO
+
+*!*	****************
+*!*	****************
+*!*	****************
+  
+toolbarsys.dock(0)
+
+=settoolbarsys()
+=disabletoolbar()
+=actutoolbarsys('_screen')
+
+    SET TALK OFF
+	SET SYSMENU ON    
+	SET SYSMENU TO 
+	DO FORM LOGIN TO LOGEO
+	
+	IF LOGEO > 0 THEN 
+	  	KEYBOARD '{F10}'
+		toolbarsys.show 
+		READ EVENTS
+	ELSE 
+	ENDIF 
+	
+
+CLEAR DLLS
+RELEASE ALL EXTENDED
+CLEAR ALL
+
+
+
+

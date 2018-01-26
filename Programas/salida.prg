@@ -1,0 +1,156 @@
+procedure salida
+parameters BASE_LIS, REPORTE, ORDEN, FILTRO, CAMPOS, COPIAS, IMPRESORA
+
+if empty(IMPRESORA)
+	IMPRESORA = ''
+endif
+
+xxsalida = 2
+xxtotales = .f.
+xxpaginas = .f.
+xxpaginades = 1
+xxpaginahas = 9999
+xxsumario = ' '
+xxarchivo = 1
+xxau = SYS(5)+SYS(2003)
+IF SUBSTR(ALLTRIM(xxau),LEN(ALLTRIM(xxau)),1)=="\" then
+	xxau = SUBSTR(ALLTRIM(xxau),1,LEN(ALLTRIM(xxau))-1)
+ENDIF
+xxcamino = xxau+"\TEMP\"
+xxnombre = ''
+xxcampos = ' '
+xxdelim_car = '"'
+xxdelim = 3
+xxdelim_cam = ' '
+xxdelimita = ' '
+xxsindeli = .t.
+wwvar = 0
+nnCopias = IIF( empty( COPIAS ), 1, COPIAS )
+
+do form salida to wwvar
+xxcamino = ALLTRIM(xxcamino)
+IF !(SUBSTR(ALLTRIM(xxcamino),LEN(ALLTRIM(xxcamino)),1)=="\") then
+	xxcamino = ALLTRIM(xxcamino)+"\"
+ENDIF
+xxnombre=ALLTRIM(xxnombre)
+
+if wwvar = 1		&&---ACEPTAR
+	select &BASE_LIS
+	vvorden = order()
+	vvfiltro = filter()
+	set order to &ORDEN
+	set filter to &FILTRO
+
+	do case
+		case xxsalida = 1			&&---SALIDA POR PANTALLA
+			nnlis = 1
+			do form salida2	
+*			report form &REPORTE preview window salida
+			
+		case xxsalida = 2			&&---SALIDA POR IMPRESORA
+			xxsumario = iif(xxtotales, 'summary', ' ')
+*			?sys(1037)
+			xxrango = iif(xxpaginas, 'range xxpaginades, xxpaginahas', '')
+
+			if empty(IMPRESORA)
+				v_impresora=GETPRINTER()
+				if empty(v_impresora)=.f.
+					SET PRINTER TO NAME alltrim(v_impresora)		&&--elige impresora
+					*SET PRINTER TO NAME GETPRINTER()
+					*SET PRINTER TO v_impresora		&&--elige impresora
+					FOR nnLis = 1 TO nnCopias
+						report form &REPORTE to printer noconsole &xxsumario &xxrango
+					NEXT
+				endif
+				SET PRINTER TO DEFAULT
+				
+			else
+			
+				SET PRINTER TO NAME (IMPRESORA)		&&-- impresora por defecto
+				FOR nnLis = 1 TO nnCopias
+					report form &REPORTE to printer noconsole &xxsumario &xxrango
+				NEXT
+				SET PRINTER TO DEFAULT
+				
+			endif
+			
+		case xxsalida = 3		&&---SALIDA POR ARCHIVO
+			if empty(CAMPOS)			&&---si se pasó lista de campos incluyo la cláusula fields
+				xxcampos = ' '
+			else
+				xxcampos = 'fields ' + CAMPOS
+			endif
+			
+			do case						&&---en que tipo de archivo voy a copiar
+				case xxarchivo = 1		&&---tipo DBF
+					copy to &xxcamino&xxnombre &xxcampos TYPE FOX2X
+				
+				case xxarchivo = 2		&&---tipo TXT (armo delimitadores de caracter y de campos)
+					if not xxsindeli
+						xxdelim_car = xxdelim_car
+						do case
+							case xxdelim = 1
+								xxdelimita = 'blank'
+							case xxdelim = 2
+								xxdelimita = 'tab'
+							case xxdelim = 3
+								xxdelimita = '","'
+							case xxdelim = 4
+								xxdelimita = '"'+xxdelim_cam+'"'
+						endcase
+						copy to &xxcamino&xxnombre &xxcampos delimited;
+							with &xxdelim_car with character &xxdelimita
+					else
+						if BASE_LIS <> 'L_IMPRE1'
+							copy to &xxcamino&xxnombre &xxcampos sdf
+						else
+							jjpath= undlocal+xxnombre+'.txt'
+							jjpath1= '"'+jjpath+'"'
+							IF FILE(jjpath1)  && ¿Existe el archivo?
+								gnErrFile = FOPEN(jjpath,1)  && Si existe, abrir para escritura
+							ELSE
+								gnErrFile = FCREATE(jjpath)  && Si no, crearlo
+							ENDIF
+							IF gnErrFile < 0  && Comprobar si hay error al abrir el archivo
+								do sonido with 1
+								WAIT window 'Imposible abrir o crear archivo de salida'
+								return
+							ENDIF
+
+							select &BASE_LIS
+							go top
+							do while not eof()
+								=fputs(gnErrFile,alltrim(&BASE_LIS..LINEA))
+							
+								select &BASE_LIS
+								skip 1
+							enddo				
+							=FCLOSE(gnErrFile)  && Cerrar archivo
+						endif
+					endif						
+				case xxarchivo = 3		&&---tipo WK1 (Lotus)
+					if recc() > 16384   &&--- 2^14
+						wait window 'AVISO: Sólo se exportarán 16384 filas. El resto se perderá.'
+					endif
+					copy to &xxcamino&xxnombre &xxcampos type WK1
+					
+				case xxarchivo = 4		&&---tipo XLS (Excel)
+					if recc() > 16384   &&--- 2^14
+						wait window 'AVISO: Sólo se exportarán 16384 filas. El resto se perderá.'
+					endif
+					copy to &xxcamino&xxnombre &xxcampos type XLS
+					
+				case xxarchivo = 5		&&---tipo XL5 (Excel 5.0)
+					if recc() > 16384   &&--- 2^14
+						wait window 'AVISO: Sólo se exportarán 16384 filas. El resto se perderá.'
+					ENDIF
+					copy to &xxcamino&xxnombre &xxcampos type XL5
+					
+			endcase
+	endcase
+	select &BASE_LIS
+	set order to &vvorden
+	set filter to &vvfiltro
+*	set message to '<Esc> o <Fin> para abandonar Procesos o Salir'
+endif
+return

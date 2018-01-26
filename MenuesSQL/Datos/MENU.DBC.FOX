@@ -1,0 +1,94 @@
+*ARCHIVO CREADO  : 09/07/2012 09:02:53 PM
+
+*TABLA : JERARQUIAS.DBF
+
+CREATE TABLE JERARQUIAS ( ;
+             JERARQUIA             C(20) )
+
+INDEX ON JERARQUIA                                                              TAG JERARQUIA
+
+*************************************************************************
+*************************************************************************
+*TABLA : MENU.DBF
+
+CREATE TABLE MENU ( ;
+             IDMENU                I, ;
+             IDMENUP               I, ;
+             NIVEL                 C(2), ;
+             CODIGO                C(14), ;
+             DESCRIP               C(50), ;
+             ARRANQUE              C(254), ;
+             COMANDO               C(254), ;
+             OPCION                C(2), ;
+             PRUN                  C(1), ;
+             PUSU                  C(1), ;
+             HABILITADO            C(1), ;
+             ORDEN                 I, ;
+             USUARIO               C(20), ;
+             FECHAHORA             C(18) )
+
+INDEX ON USUARIO                                                                TAG USUARIO
+INDEX ON CODIGO                                                                 TAG CODIGO
+INDEX ON IDMENUP                                                                TAG IDMENUP
+INDEX ON NIVEL                                                                  TAG NIVEL
+INDEX ON IDMENU                                                                 TAG IDMENU
+
+*************************************************************************
+*************************************************************************
+*TABLA : PERFILMH.DBF
+
+CREATE TABLE PERFILMH ( ;
+             IDPERFIL              I, ;
+             IDMENU                I, ;
+             HABILITADO            C(1) )
+
+INDEX ON IDMENU                                                                 TAG IDMENU
+INDEX ON IDPERFIL                                                               TAG IDPERFIL
+
+*************************************************************************
+*************************************************************************
+*TABLA : PERFILMP.DBF
+
+CREATE TABLE PERFILMP ( ;
+             IDPERFIL              I, ;
+             PERFIL                C(200), ;
+             DESCRIP               C(200), ;
+             HABILITADO            C(1) )
+
+INDEX ON PERFIL                                                                 TAG PERFIL
+INDEX ON IDPERFIL                                                               TAG IDPERFIL
+
+*************************************************************************
+*************************************************************************
+*TABLA : PERFILUSU.DBF
+
+CREATE TABLE PERFILUSU ( ;
+             IDPERFIL              I, ;
+             USUARIO               C(20), ;
+             HABILITADO            C(1), ;
+             ACTIVO                I )
+
+INDEX ON ACTIVO                                                                 TAG ACTIVO
+INDEX ON HABILITADO                                                             TAG HABILITADO
+INDEX ON USUARIO                                                                TAG USUARIO
+INDEX ON IDPERFIL                                                               TAG IDPERFIL
+
+*************************************************************************
+*************************************************************************
+*TABLA : USUARIOS.DBF
+
+CREATE TABLE USUARIOS ( ;
+             USUARIO               C(20), ;
+             NOMBRE                C(100), ;
+             CLAVE                 C(15), ;
+             JERARQUIA             C(60), ;
+             SECCION               C(20), ;
+             EMAIL                 C(80), ;
+             HABILITADO            C(1) )
+
+INDEX ON JERARQUIA                                                              TAG JERARQUIA
+INDEX ON CLAVE                                                                  TAG CLAVE
+INDEX ON USUARIO                                                                TAG USUARIO
+
+*************************************************************************
+*************************************************************************

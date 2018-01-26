@@ -1,0 +1,21 @@
+create schema admindb ;
+
+use admindb ;
+
+DROP TABLE IF EXISTS `admindb`.`esquemas`;
+CREATE TABLE  `admindb`.`esquemas` (
+  `idesquema` int(11) NOT NULL DEFAULT '0',
+  `descrip` char(50) NOT NULL DEFAULT '',
+  `schemma` char(25) NOT NULL DEFAULT '',
+  `fondo` varchar(200) NOT NULL DEFAULT '',
+  `host` char(50) NOT NULL DEFAULT '',
+  `port` char(4) NOT NULL DEFAULT '3306',
+  `usuario` char(20) NOT NULL DEFAULT '',
+  `password` char(25) NOT NULL DEFAULT '',
+  `colorfondo` char(20) NOT NULL DEFAULT '',
+  `habilitado` char(1) NOT NULL DEFAULT 'S',
+  PRIMARY KEY (`idesquema`),
+  KEY `idbase` (`idesquema`),
+  KEY `schemma` (`schemma`),
+  KEY `usuario` (`usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

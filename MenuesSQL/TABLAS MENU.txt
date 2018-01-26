@@ -1,0 +1,86 @@
+create schema admindb ;
+
+use admindb ;
+
+create table esquemas ( 
+             idesquema 		   integer default 0  not null PRIMARY KEY , 
+             descrip     	   char(50) default  ''  not null , 
+             schemma 		   char(25) default  ''  not null ,
+             driver                char(50) default  ''  not null , 
+             host                  char(50) default  ''  not null ,
+             port                  char(4) default '3306' not null,
+             usuario               char(20) default  ''  not null , 
+             password              char(25) default  ''  not null , 
+             pordefaul             char(1) default  'N'  not null , 
+             habilitado            char(1) default  'S' not null ,
+             index idbase(idbase), 
+             index schemma(schemma), 
+             index usuario (usuario) 
+) TYPE = InnoDB ;
+
+create table menu ( 
+             idmenu                integer default 0  not null primary key , 
+	     idmenup               integer default 0  not null , 
+             nivel                 char(2) default  ''  not null , 
+             codigo                char(14) default ''  not null , 
+	     descrip               char(50) default ''  not null , 
+             arranque              char(254) default ''  not null , 
+             comando               char(254) default  ''  not null , 
+             opcion                char(2) default '' not null , 
+             prun                  char(1) default 'S' not null , 
+             pusu                  char(1) default 'S'not null ,
+             habilitado            char(1) default 'S'not null ,
+             orden                 char(2) default '00'  not null , 
+             usuario               char(20) default ''not null ,
+             fechahora             char(18) default ''not null ,
+             index idmenu (idmenu), 
+             index nivel (nivel), 
+             index codigo (codigo), 
+	     index habilitado (habilitado)
+) TYPE = InnoDB ;
+create table perfilmp ( 
+             idperfil              integer default 0  not null primary key , 
+             perfil                char(20) default  ''  not null , 
+             descrip               char(200) default ''  not null , 
+             habilitado            char(1) default 'S'not null ,
+             index idperfil (idperfil) ,
+	     index habilitado (habilitado) 
+) TYPE = InnoDB ;	
+	
+
+create table perfilmh ( 
+             idperfil             integer default 0  not null , 
+             idmenu               integer default 0  not null  , 
+             habilitado            char(1) default 'S'not null ,
+             index idmenu (idmenu) ,
+             index idperfil (idperfil) ,
+	     index habilitado (habilitado) 
+) TYPE = InnoDB ;
+
+	
+create table perfilusu ( 
+             idperfil             integer default 0  not null , 
+             usuario              char(20) default '' not null  , 
+             habilitado           char(1) default 'S'not null ,
+	     activo               integer default 0  not null , 
+             index idperfil (idperfil) ,
+	     index usuario (usuario) , 
+	     index habilitado (habilitado) 
+) TYPE = InnoDB ;
+
+create table usuarios ( 
+             usuario               char(15) default  ''  not null  primary key , 
+             nombre                char(100) default  ''  not null , 
+             clave                 char(15) default  ''  not null , 
+             jerarquia             char(60) default  ''  not null , 
+             seccion               char(20) default  ''  not null ,
+             email                 varchar(80) default  ''  not null ,
+             habilitado            char(1)  default  'S'  not null ,
+             index usuario (usuario) 
+) TYPE = InnoDB ;
+
+
+CREATE TABLE  jerarquias ( 
+	 jerarquia char(20) NOT NULL DEFAULT '',
+	 PRIMARY KEY (`jerarquia`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
