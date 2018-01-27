@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuracion>
+  <path>
+    <certificadoPru>c:\FE\CERTIFICADOS\alias.p12</certificadoPru>
+    <certificadoPro>c:\FE\CERTIFICADOS\alsafex4_3.p12</certificadoPro>
+    <ticket_accesoPru>c:\FE\TA\TicketAccesoPru.xml</ticket_accesoPru>
+    <ticket_accesoPro>c:\FE\TA\TicketAccesoPro.xml</ticket_accesoPro>
+    <log>.\log.txt</log>
+  </path>
+  <opciones>
+    <visible_inicio>1</visible_inicio>
+  </opciones>
+  <empresa>
+    <nombre_empresa>ALSAFEX S.A.</nombre_empresa>
+    <cuit_empresa>30712443347</cuit_empresa>
+  </empresa>
+  <variables_globales>
+    <modo_produccion>0</modo_produccion>
+  </variables_globales>
+</configuracion>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuracion>
+  <path>
+    <certificadoPru>c:\FE\CERTIFICADOS\aliascose.pfx</certificadoPru>
+    <certificadoPro>c:\FE\CERTIFICADOS\aliascose.pfx</certificadoPro>
+    <ticket_accesoPru>c:\FE\TA\TicketAccesoPru.xml</ticket_accesoPru>
+    <ticket_accesoPro>c:\FE\TA\TicketAccesoPro.xml</ticket_accesoPro>
+    <log>.\log.txt</log>
+  </path>
+  <opciones>
+    <visible_inicio>1</visible_inicio>
+  </opciones>
+  <empresa>
+    <nombre_empresa>COSEMAR</nombre_empresa>
+    <cuit_empresa>30545784897</cuit_empresa>
+  </empresa>
+  <variables_globales>
+    <modo_produccion>0</modo_produccion>
+  </variables_globales>
+</configuracion>

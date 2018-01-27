@@ -1,0 +1,7 @@
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\bin\Debug\LibreriaClases.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\bin\Debug\LibreriaClases.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\obj\Debug\LibreriaClases.csprojResolveAssemblyReference.cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\obj\Debug\LibreriaClases.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\obj\Debug\LibreriaClases.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\bin\Debug\ClienteLoginCms_CS.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\LibreriaClases\bin\Debug\ClienteLoginCms_CS.pdb

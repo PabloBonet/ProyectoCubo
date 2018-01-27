@@ -1,0 +1,242 @@
+Se produjo un error al cargar la configuración: No se pudo encontrar el archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\config.xml'.
+
+Se produjo un error al cargar la configuración: No se pudo encontrar el archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\config.xml'.
+
+Se produjo un error al cargar la configuración: No se pudo encontrar el archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\config.xml'.
+Se produjo un error al cargar la configuración: No se pudo encontrar el archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\config.xml'.
+Se produjo un error al cargar la configuración: El proceso no puede obtener acceso al archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\log.txt' porque está siendo utilizado en otro proceso.
+
+[12/1/2018 18:38:22] Se produjo un error al cargar la configuración: El proceso no puede obtener acceso al archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\log.txt' porque está siendo utilizado en otro proceso.
+
+[12/1/2018 19:16:51] El servicio no está iniciado correctamente
+
+[12/1/2018 19:19:35] El servicio no está iniciado correctamente
+
+[12/1/2018 19:19:36] Se produjo un error al cargar la configuración: El proceso no puede obtener acceso al archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\log.txt' porque está siendo utilizado en otro proceso.
+
+[12/1/2018 19:21:08] El servicio no está iniciado correctamente
+
+[12/1/2018 19:21:10] Se produjo un error al cargar la configuración: El proceso no puede obtener acceso al archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\log.txt' porque está siendo utilizado en otro proceso.
+
+[12/1/2018 19:23:58] El servicio no está iniciado correctamente
+
+[12/1/2018 19:25:42] El servicio no está iniciado correctamente
+
+[12/1/2018 19:48:19] El servicio no está iniciado correctamente
+
+[12/1/2018 20:03:50] El servicio no está iniciado correctamente
+
+[16/01/2018 9:05:59] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: Referencia a objeto no establecida como instancia de un objeto.
+[19/01/2018 11:10:33] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 11:57:59] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 12:06:30] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 12:46:11] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 12:49:53] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 12:59:07] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:01:34] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:05:31] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:08:31] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:11:25] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:27:10] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:28:57] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:33:14] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:41:38] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:48:13] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:53:45] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 13:58:57] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 14:04:32] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 14:19:29] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[19/01/2018 14:26:37] Ticket de Acceso obtenido, válido hasta: 19/01/2018 23:10:03
+
+
+[22/01/2018 10:17:51] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:24:55] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:29:59] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:32:12] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:36:25] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:45:14] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:46:31] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 10:58:45] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:04:30] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:09:51] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:11:24] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:35:36] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:39:12] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:41:55] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 11:46:15] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 12:56:18] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 12:59:48] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 13:02:18] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 13:25:15] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+Comprobante AUTORIZADO (ID 1): 0003 - 00000007. CAE: 68047630538670
+
+
+[22/01/2018 13:26:28] Hubo un error al autorizar el comprobante. Error al intentar escribir en el archivo de log
+No se puede obtener acceso a un archivo cerrado.
+
+[22/01/2018 13:26:38] Hubo un error al autorizar el comprobante. Error al intentar escribir en el archivo de log
+No se puede obtener acceso a un archivo cerrado.
+
+[22/01/2018 13:26:42] Ticket de Acceso obtenido, válido hasta: 22/01/2018 22:17:59
+
+
+[22/01/2018 13:27:46] [Cod: 10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+Comprobante RECHAZADO (ID 1) 
+[10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+
+
+[23/01/2018 9:02:52] Ticket de Acceso obtenido, válido hasta: 23/01/2018 21:02:36
+
+
+[23/01/2018 9:05:35] Comprobante AUTORIZADO (ID 5): 0003 - 00000008. CAE: 68047630556221
+
+
+[23/01/2018 9:06:53] Hubo un error al autorizar el comprobante. Error al intentar escribir en el archivo de log
+No se puede obtener acceso a un archivo cerrado.
+
+[23/01/2018 9:08:11] Hubo un error al autorizar el comprobante. Error al intentar escribir en el archivo de log
+No se puede obtener acceso a un archivo cerrado.
+
+[23/01/2018 9:09:09] Hubo un error al autorizar el comprobante. Error al intentar escribir en el archivo de log
+No se puede obtener acceso a un archivo cerrado.
+
+[23/01/2018 9:19:34] Ticket de Acceso obtenido, válido hasta: 23/01/2018 21:02:36
+
+
+[23/01/2018 9:20:14] Comprobante AUTORIZADO (ID 1): 0003 - 00000009. CAE: 68047630556632
+
+
+[23/01/2018 9:20:53] Error al autorizar el comprobante por ID. El ticket de acceso es NULL o idComprobante <= 0
+
+[23/01/2018 9:21:07] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:21:49] Error al autorizar el comprobante por ID. El ticket de acceso es NULL o idComprobante <= 0
+
+[23/01/2018 9:21:56] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:24:38] Ticket de Acceso obtenido, válido hasta: 23/01/2018 21:02:36
+
+
+[23/01/2018 9:25:40] Comprobante AUTORIZADO (ID 1): 0003 - 00000010. CAE: 68047630556687
+
+
+[23/01/2018 9:26:09] Error al autorizar el comprobante por ID. El ticket de acceso es NULL o idComprobante <= 0
+
+[23/01/2018 9:26:12] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:26:49] Error al autorizar el comprobante por ID. El ticket de acceso es NULL o idComprobante <= 0
+
+[23/01/2018 9:26:50] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:29:03] Ticket de Acceso obtenido, válido hasta: 23/01/2018 21:02:36
+
+
+[23/01/2018 9:29:38] Comprobante AUTORIZADO (ID 1): 0003 - 00000011. CAE: 68047630557120
+
+
+[23/01/2018 9:30:16] Comprobante AUTORIZADO (ID 2): 0003 - 00000012. CAE: 68047630557133
+
+
+[23/01/2018 9:30:26] Error al autorizar el comprobante por ID. El ticket de acceso es NULL o idComprobante <= 0
+
+[23/01/2018 9:30:28] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:31:47] Error al autorizar el comprobante por ID. El ticket de acceso es NULL o idComprobante <= 0
+
+[23/01/2018 9:31:53] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:38:50] Ticket de Acceso obtenido, válido hasta: 23/01/2018 21:02:36
+
+
+[23/01/2018 9:46:29] Comprobante AUTORIZADO (ID 1): 0003 - 00000013. CAE: 68047630557277
+
+
+[23/01/2018 9:47:01] Comprobante AUTORIZADO (ID 2): 0003 - 00000014. CAE: 68047630557280
+
+
+[23/01/2018 9:47:10] Error al autorizar el comprobante por ID. El comprobante ya está autorizado con CAE: 68047630557280
+
+[23/01/2018 9:47:11] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+
+[23/01/2018 9:47:44] Error al autorizar el comprobante por ID. El ID del comprobante no se corresponde con el que se desea autorizar
+
+[23/01/2018 9:47:44] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
+

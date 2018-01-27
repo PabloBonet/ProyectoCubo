@@ -1,0 +1,16 @@
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.dll.config
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.XmlSerializers.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.pdb
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.csprojResolveAssemblyReference.cache
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.pdb
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\dev-wsaa-cliente-dotnet-cs\dev-wsaa-cliente-dotnet-cs\source\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.XmlSerializers.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.dll.config
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.XmlSerializers.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\bin\Release\ClienteLoginCms_CS.pdb
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.csprojResolveAssemblyReference.cache
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.dll
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.pdb
+C:\Users\tulior\Documents\Visual Studio 2015\Projects\ModuloAFIP\ClienteLoginCms_CS\obj\Release\ClienteLoginCms_CS.XmlSerializers.dll

@@ -1,0 +1,13 @@
+c:\users\pablo\documents\visual studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\AppConsolaModulo.exe.config
+c:\users\pablo\documents\visual studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\AppConsolaModulo.exe
+c:\users\pablo\documents\visual studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\AppConsolaModulo.pdb
+c:\users\pablo\documents\visual studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\obj\Debug\AppConsolaModulo.csprojResolveAssemblyReference.cache
+c:\users\pablo\documents\visual studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\obj\Debug\AppConsolaModulo.exe
+c:\users\pablo\documents\visual studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\obj\Debug\AppConsolaModulo.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ApplicationInsights.config
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ServicioAFIP.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ServicioAFIP.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\LibreriaClases.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ClienteLoginCms_CS.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\LibreriaClases.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ClienteLoginCms_CS.pdb
