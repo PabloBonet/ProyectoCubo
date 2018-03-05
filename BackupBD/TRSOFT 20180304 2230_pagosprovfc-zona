@@ -1,0 +1,1243 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.55-0+deb8u1
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema trsoftdb
+--
+
+CREATE DATABASE IF NOT EXISTS trsoftdb;
+USE trsoftdb;
+
+--
+-- Definition of table `pagosprovfc`
+--
+
+DROP TABLE IF EXISTS `pagosprovfc`;
+CREATE TABLE `pagosprovfc` (
+  `idpago` int(10) unsigned NOT NULL,
+  `idfactprovep` int(10) unsigned NOT NULL DEFAULT '0',
+  `idncprove` int(10) unsigned NOT NULL,
+  `imputado` float(13,4) NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `idpagosprovfc` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idpagosprovfc`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pagosprovfc`
+--
+
+/*!40000 ALTER TABLE `pagosprovfc` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pagosprovfc` ENABLE KEYS */;
+
+
+--
+-- Definition of table `paises`
+--
+
+DROP TABLE IF EXISTS `paises`;
+CREATE TABLE `paises` (
+  `pais` char(10) NOT NULL DEFAULT '0',
+  `nombre` char(60) NOT NULL,
+  PRIMARY KEY (`pais`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paises`
+--
+
+/*!40000 ALTER TABLE `paises` DISABLE KEYS */;
+INSERT INTO `paises` (`pais`,`nombre`) VALUES 
+ ('1','ARGENTINA'),
+ ('2','BRASIL'),
+ ('3','URUGUAY'),
+ ('4','PARAGUAY');
+/*!40000 ALTER TABLE `paises` ENABLE KEYS */;
+
+
+--
+-- Definition of table `perfilmh`
+--
+
+DROP TABLE IF EXISTS `perfilmh`;
+CREATE TABLE `perfilmh` (
+  `idperfil` int(11) NOT NULL DEFAULT '0',
+  `idmenu` int(11) NOT NULL DEFAULT '0',
+  `habilitado` char(1) NOT NULL DEFAULT 'S',
+  `codigo` char(14) NOT NULL,
+  `idconcepto` int(10) unsigned NOT NULL,
+  KEY `idmenu` (`idmenu`),
+  KEY `idperfil` (`idperfil`),
+  KEY `habilitado` (`habilitado`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `perfilmh`
+--
+
+/*!40000 ALTER TABLE `perfilmh` DISABLE KEYS */;
+INSERT INTO `perfilmh` (`idperfil`,`idmenu`,`habilitado`,`codigo`,`idconcepto`) VALUES 
+ (1,1,'S','',0),
+ (1,2,'S','',0),
+ (1,3,'S','',0),
+ (1,4,'S','',0),
+ (1,5,'S','',0),
+ (1,6,'S','',0),
+ (1,7,'S','',0),
+ (1,8,'S','',0),
+ (1,9,'S','',0),
+ (1,10,'S','',0),
+ (1,11,'S','',0),
+ (1,12,'S','',0),
+ (1,13,'S','',0),
+ (1,14,'S','',0),
+ (1,15,'S','',0),
+ (1,16,'S','',0),
+ (1,17,'S','',0),
+ (1,18,'S','',0),
+ (1,19,'S','',0),
+ (1,20,'S','',0),
+ (1,21,'S','',0),
+ (1,22,'S','',0),
+ (1,23,'S','',0),
+ (1,24,'S','',0),
+ (1,25,'S','',0),
+ (1,26,'S','',0),
+ (1,27,'S','',0),
+ (1,28,'S','',0),
+ (1,29,'S','',0),
+ (1,30,'S','',0),
+ (1,31,'S','',0),
+ (1,32,'S','',0),
+ (1,33,'S','',0),
+ (1,34,'S','',0),
+ (1,35,'S','',0),
+ (1,36,'S','',0),
+ (1,37,'S','',0),
+ (1,38,'S','',0),
+ (1,39,'S','',0),
+ (1,40,'S','',0),
+ (1,41,'S','',0),
+ (1,42,'S','',0),
+ (1,43,'S','',0),
+ (1,44,'S','',0),
+ (1,45,'S','',0),
+ (1,46,'S','',0),
+ (1,50,'S','',0);
+/*!40000 ALTER TABLE `perfilmh` ENABLE KEYS */;
+
+
+--
+-- Definition of table `perfilmp`
+--
+
+DROP TABLE IF EXISTS `perfilmp`;
+CREATE TABLE `perfilmp` (
+  `idperfil` int(11) NOT NULL DEFAULT '0',
+  `perfil` char(20) NOT NULL DEFAULT '',
+  `descrip` char(200) NOT NULL DEFAULT '',
+  `habilitado` char(1) NOT NULL DEFAULT 'S',
+  PRIMARY KEY (`idperfil`),
+  KEY `idperfil` (`idperfil`),
+  KEY `habilitado` (`habilitado`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `perfilmp`
+--
+
+/*!40000 ALTER TABLE `perfilmp` DISABLE KEYS */;
+INSERT INTO `perfilmp` (`idperfil`,`perfil`,`descrip`,`habilitado`) VALUES 
+ (1,'Perfil Maestros','','S');
+/*!40000 ALTER TABLE `perfilmp` ENABLE KEYS */;
+
+
+--
+-- Definition of table `perfilusu`
+--
+
+DROP TABLE IF EXISTS `perfilusu`;
+CREATE TABLE `perfilusu` (
+  `idperfil` int(11) NOT NULL DEFAULT '0',
+  `usuario` char(15) NOT NULL,
+  `habilitado` char(1) NOT NULL DEFAULT 'S',
+  `activo` int(11) NOT NULL DEFAULT '0',
+  KEY `idperfil` (`idperfil`),
+  KEY `usuario` (`usuario`),
+  KEY `habilitado` (`habilitado`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `perfilusu`
+--
+
+/*!40000 ALTER TABLE `perfilusu` DISABLE KEYS */;
+INSERT INTO `perfilusu` (`idperfil`,`usuario`,`habilitado`,`activo`) VALUES 
+ (1,'GUSTAVO','S',1),
+ (1,'TULIO','S',1),
+ (1,'FEDE','S',1);
+/*!40000 ALTER TABLE `perfilusu` ENABLE KEYS */;
+
+
+--
+-- Definition of table `plancuentas`
+--
+
+DROP TABLE IF EXISTS `plancuentas`;
+CREATE TABLE `plancuentas` (
+  `idplan` int(10) unsigned NOT NULL,
+  `fechad` char(8) NOT NULL,
+  `fechah` char(8) NOT NULL,
+  `detalle` char(254) NOT NULL,
+  PRIMARY KEY (`idplan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `plancuentas`
+--
+
+/*!40000 ALTER TABLE `plancuentas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `plancuentas` ENABLE KEYS */;
+
+
+--
+-- Definition of table `plancuentasd`
+--
+
+DROP TABLE IF EXISTS `plancuentasd`;
+CREATE TABLE `plancuentasd` (
+  `idplan` int(10) unsigned NOT NULL,
+  `codigocta` char(20) NOT NULL,
+  `nombrecta` char(254) NOT NULL,
+  `sumarizaen` char(20) NOT NULL,
+  `imputable` char(1) NOT NULL,
+  `activa` char(1) NOT NULL,
+  `detalle` char(254) NOT NULL,
+  `idpland` int(10) unsigned NOT NULL,
+  `idplandup` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idpland`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `plancuentasd`
+--
+
+/*!40000 ALTER TABLE `plancuentasd` DISABLE KEYS */;
+/*!40000 ALTER TABLE `plancuentasd` ENABLE KEYS */;
+
+
+--
+-- Definition of table `presupu`
+--
+
+DROP TABLE IF EXISTS `presupu`;
+CREATE TABLE `presupu` (
+  `idpresupu` int(10) unsigned NOT NULL,
+  `idcomproba` int(10) unsigned NOT NULL,
+  `pventa` int(10) unsigned NOT NULL DEFAULT '0',
+  `actividad` int(10) unsigned NOT NULL,
+  `numero` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `fechavenc` char(8) NOT NULL,
+  `entidad` int(10) unsigned NOT NULL,
+  `servicio` int(10) unsigned NOT NULL,
+  `cuenta` int(10) unsigned NOT NULL,
+  `apellido` char(254) NOT NULL,
+  `nombre` char(254) NOT NULL,
+  `direccion` char(254) NOT NULL,
+  `localidad` int(10) unsigned NOT NULL,
+  `iva` int(10) unsigned NOT NULL,
+  `cuit` char(13) NOT NULL,
+  `tipodoc` char(3) NOT NULL DEFAULT '',
+  `dni` int(10) unsigned NOT NULL,
+  `telefono` char(50) NOT NULL,
+  `cp` char(50) NOT NULL,
+  `fax` char(50) NOT NULL,
+  `email` char(200) NOT NULL,
+  `trasp` int(10) unsigned NOT NULL,
+  `nomtransp` char(254) NOT NULL,
+  `domentrega` char(254) NOT NULL,
+  `condvta` int(10) unsigned NOT NULL DEFAULT '0',
+  `neto` float(13,4) NOT NULL,
+  `subtotal` float(13,4) NOT NULL,
+  `descuento` float(13,4) NOT NULL,
+  `recargo` float(13,4) NOT NULL,
+  `total` float(13,4) NOT NULL,
+  `operexenta` char(1) NOT NULL,
+  `anulado` char(1) NOT NULL,
+  `observa1` char(254) NOT NULL,
+  `observa2` char(254) NOT NULL,
+  `observa3` char(254) NOT NULL,
+  `observa4` char(254) NOT NULL,
+  `vendedor` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idpresupu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `presupu`
+--
+
+/*!40000 ALTER TABLE `presupu` DISABLE KEYS */;
+/*!40000 ALTER TABLE `presupu` ENABLE KEYS */;
+
+
+--
+-- Definition of table `presupuanul`
+--
+
+DROP TABLE IF EXISTS `presupuanul`;
+CREATE TABLE `presupuanul` (
+  `idpresupu` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `presupuanul`
+--
+
+/*!40000 ALTER TABLE `presupuanul` DISABLE KEYS */;
+/*!40000 ALTER TABLE `presupuanul` ENABLE KEYS */;
+
+
+--
+-- Definition of table `presupuh`
+--
+
+DROP TABLE IF EXISTS `presupuh`;
+CREATE TABLE `presupuh` (
+  `idpresupu` int(10) unsigned NOT NULL,
+  `idpresupuh` int(10) unsigned NOT NULL,
+  `articulo` char(20) NOT NULL,
+  `idconcepto` int(10) unsigned NOT NULL,
+  `servicio` int(10) unsigned NOT NULL,
+  `cantidad` int(10) unsigned NOT NULL,
+  `unidad` char(10) NOT NULL,
+  `cantidadfc` int(10) unsigned NOT NULL,
+  `unidadfc` char(10) NOT NULL,
+  `detalle` char(254) NOT NULL,
+  `unitario` float(13,4) NOT NULL,
+  `impuestos` float(13,4) NOT NULL DEFAULT '0.0000',
+  `total` float(13,4) NOT NULL,
+  `codigocta` char(20) NOT NULL,
+  `cuota` int(10) unsigned NOT NULL,
+  `cantcuotas` int(10) unsigned NOT NULL,
+  `impuesto` int(10) unsigned NOT NULL DEFAULT '0',
+  `entidad` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idpresupu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `presupuh`
+--
+
+/*!40000 ALTER TABLE `presupuh` DISABLE KEYS */;
+/*!40000 ALTER TABLE `presupuh` ENABLE KEYS */;
+
+
+--
+-- Definition of table `presupuimp`
+--
+
+DROP TABLE IF EXISTS `presupuimp`;
+CREATE TABLE `presupuimp` (
+  `idpresupu` int(10) unsigned NOT NULL,
+  `impuesto` int(10) unsigned NOT NULL DEFAULT '0',
+  `detalle` char(254) NOT NULL,
+  `neto` float(13,4) NOT NULL,
+  `razon` float(13,4) NOT NULL,
+  `importe` float(13,4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `presupuimp`
+--
+
+/*!40000 ALTER TABLE `presupuimp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `presupuimp` ENABLE KEYS */;
+
+
+--
+-- Definition of table `provincias`
+--
+
+DROP TABLE IF EXISTS `provincias`;
+CREATE TABLE `provincias` (
+  `provincia` char(10) NOT NULL DEFAULT '',
+  `nombre` char(60) NOT NULL,
+  `pais` char(10) NOT NULL,
+  PRIMARY KEY (`provincia`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `provincias`
+--
+
+/*!40000 ALTER TABLE `provincias` DISABLE KEYS */;
+INSERT INTO `provincias` (`provincia`,`nombre`,`pais`) VALUES 
+ ('1','SANTA FE','1'),
+ ('2','CHACO','1'),
+ ('3','ENTRE RIOS','1'),
+ ('4','CATAMARCA','1'),
+ ('5','TIERRA DEL FUEGO','1'),
+ ('6','FLORIANOPOLIS','2'),
+ ('7','CAMBORIU','2'),
+ ('8','SAN PABLO','2'),
+ ('9','BUENOS AIRES','1');
+/*!40000 ALTER TABLE `provincias` ENABLE KEYS */;
+
+
+--
+-- Definition of table `puntosventa`
+--
+
+DROP TABLE IF EXISTS `puntosventa`;
+CREATE TABLE `puntosventa` (
+  `pventa` int(10) unsigned NOT NULL,
+  `detalle` char(200) NOT NULL,
+  `puntov` char(4) NOT NULL,
+  `habilitado` char(1) NOT NULL,
+  `fechaini` char(8) NOT NULL,
+  `fechabaja` char(8) NOT NULL,
+  `electronica` char(1) NOT NULL,
+  PRIMARY KEY (`pventa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `puntosventa`
+--
+
+/*!40000 ALTER TABLE `puntosventa` DISABLE KEYS */;
+INSERT INTO `puntosventa` (`pventa`,`detalle`,`puntov`,`habilitado`,`fechaini`,`fechabaja`,`electronica`) VALUES 
+ (1,'CoSeMar','0001','1','20170202','','N'),
+ (3,'PUNTO DE VENTA PARA ID','0','1','','','N'),
+ (4,'CoSeMar_Electrónica','0003','1','','','S');
+/*!40000 ALTER TABLE `puntosventa` ENABLE KEYS */;
+
+
+--
+-- Definition of table `recibos`
+--
+
+DROP TABLE IF EXISTS `recibos`;
+CREATE TABLE `recibos` (
+  `idrecibo` int(10) unsigned NOT NULL,
+  `idcomproba` int(10) unsigned NOT NULL,
+  `pventa` int(10) unsigned NOT NULL,
+  `actividad` int(10) unsigned NOT NULL,
+  `numero` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `entidad` int(10) unsigned NOT NULL,
+  `apellido` char(254) NOT NULL,
+  `nombre` char(254) NOT NULL,
+  `importe` float(13,4) NOT NULL,
+  `concepto` char(254) NOT NULL,
+  PRIMARY KEY (`idrecibo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `recibos`
+--
+
+/*!40000 ALTER TABLE `recibos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `recibos` ENABLE KEYS */;
+
+
+--
+-- Definition of table `relotcompro`
+--
+
+DROP TABLE IF EXISTS `relotcompro`;
+CREATE TABLE `relotcompro` (
+  `idot` int(10) unsigned NOT NULL,
+  `idotint` int(10) unsigned NOT NULL,
+  `idremitoh` int(10) unsigned NOT NULL,
+  `idfacturas` int(10) unsigned NOT NULL,
+  `idpresupuh` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idot`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `relotcompro`
+--
+
+/*!40000 ALTER TABLE `relotcompro` DISABLE KEYS */;
+/*!40000 ALTER TABLE `relotcompro` ENABLE KEYS */;
+
+
+--
+-- Definition of table `remitos`
+--
+
+DROP TABLE IF EXISTS `remitos`;
+CREATE TABLE `remitos` (
+  `idremito` int(10) unsigned NOT NULL,
+  `idcomproba` int(10) unsigned NOT NULL,
+  `pventa` int(10) unsigned NOT NULL DEFAULT '0',
+  `numero` int(10) unsigned NOT NULL,
+  `tipo` char(1) NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `entidad` int(10) unsigned NOT NULL,
+  `servicio` int(10) unsigned NOT NULL,
+  `cuenta` int(10) unsigned NOT NULL,
+  `apellido` char(254) NOT NULL,
+  `nombre` char(254) NOT NULL,
+  `direccion` char(254) NOT NULL,
+  `localidad` int(10) unsigned NOT NULL,
+  `iva` int(10) unsigned NOT NULL,
+  `cuit` char(13) NOT NULL,
+  `tipodoc` char(3) NOT NULL DEFAULT '',
+  `dni` int(10) unsigned NOT NULL,
+  `telefono` char(50) NOT NULL,
+  `cp` char(50) NOT NULL,
+  `fax` char(50) NOT NULL,
+  `email` char(200) NOT NULL,
+  `transporte` int(10) unsigned NOT NULL DEFAULT '0',
+  `nomtransp` char(254) NOT NULL,
+  `domentrega` char(254) NOT NULL,
+  `stock` char(1) NOT NULL,
+  `condvta` int(10) unsigned NOT NULL DEFAULT '0',
+  `neto` float(13,4) NOT NULL,
+  `subtotal` float(13,4) NOT NULL,
+  `recargo` float(13,4) NOT NULL,
+  `operexenta` char(1) NOT NULL,
+  `anulado` char(1) NOT NULL,
+  `observa1` char(254) NOT NULL,
+  `observa2` char(254) NOT NULL,
+  `observa3` char(254) NOT NULL,
+  `observa4` char(254) NOT NULL,
+  `ruta1` int(10) unsigned NOT NULL,
+  `folio1` int(10) unsigned NOT NULL,
+  `ruta2` int(10) unsigned NOT NULL,
+  `folio2` int(10) unsigned NOT NULL,
+  `vendedor` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idremito`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `remitos`
+--
+
+/*!40000 ALTER TABLE `remitos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remitos` ENABLE KEYS */;
+
+
+--
+-- Definition of table `remitosanul`
+--
+
+DROP TABLE IF EXISTS `remitosanul`;
+CREATE TABLE `remitosanul` (
+  `idremito` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `remitosanul`
+--
+
+/*!40000 ALTER TABLE `remitosanul` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remitosanul` ENABLE KEYS */;
+
+
+--
+-- Definition of table `remitosh`
+--
+
+DROP TABLE IF EXISTS `remitosh`;
+CREATE TABLE `remitosh` (
+  `idremito` int(10) unsigned NOT NULL,
+  `idremitoh` int(10) unsigned NOT NULL,
+  `articulo` char(20) NOT NULL,
+  `idconcepto` int(10) unsigned NOT NULL,
+  `servicio` int(10) unsigned NOT NULL,
+  `cantidad` float(13,4) NOT NULL DEFAULT '0.0000',
+  `unidad` char(10) NOT NULL,
+  `cantidadfc` float(13,4) NOT NULL DEFAULT '0.0000',
+  `unidadfc` char(10) NOT NULL,
+  `detalle` char(254) NOT NULL,
+  `unitario` float(13,4) NOT NULL,
+  `impuestos` float(13,4) NOT NULL DEFAULT '0.0000',
+  `total` float(13,4) NOT NULL,
+  `codigocta` char(20) NOT NULL,
+  `nombrecta` char(100) NOT NULL,
+  `cuota` int(10) unsigned NOT NULL,
+  `cancuotas` int(10) unsigned NOT NULL,
+  `padron` int(10) unsigned NOT NULL,
+  `impuesto` int(10) unsigned NOT NULL DEFAULT '0',
+  `razonimp` float(13,4) NOT NULL,
+  PRIMARY KEY (`idremito`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `remitosh`
+--
+
+/*!40000 ALTER TABLE `remitosh` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remitosh` ENABLE KEYS */;
+
+
+--
+-- Definition of table `remitosprovh`
+--
+
+DROP TABLE IF EXISTS `remitosprovh`;
+CREATE TABLE `remitosprovh` (
+  `idremiprovh` int(10) unsigned NOT NULL DEFAULT '0',
+  `idremiprovp` int(10) unsigned NOT NULL DEFAULT '0',
+  `renglon` int(10) unsigned NOT NULL,
+  `articulo` char(20) NOT NULL,
+  `codartprov` char(20) NOT NULL,
+  `detalle` char(254) NOT NULL,
+  `cantidad` float(13,2) NOT NULL,
+  `unitario` float(13,2) NOT NULL,
+  `unidad` char(20) NOT NULL,
+  `impuestos` float(13,2) NOT NULL,
+  `total` float(13,2) NOT NULL,
+  PRIMARY KEY (`idremiprovh`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `remitosprovh`
+--
+
+/*!40000 ALTER TABLE `remitosprovh` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remitosprovh` ENABLE KEYS */;
+
+
+--
+-- Definition of table `remitosprovp`
+--
+
+DROP TABLE IF EXISTS `remitosprovp`;
+CREATE TABLE `remitosprovp` (
+  `idremitprovp` int(10) unsigned NOT NULL DEFAULT '0',
+  `actividad` int(10) unsigned NOT NULL,
+  `numero` int(10) unsigned NOT NULL,
+  `entidad` int(10) unsigned NOT NULL,
+  `apellido` char(200) NOT NULL,
+  `nombre` char(200) NOT NULL,
+  `direccion` char(100) NOT NULL,
+  `localidad` int(10) unsigned NOT NULL DEFAULT '0',
+  `iva` int(10) unsigned NOT NULL,
+  `cuit` char(13) NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `observa1` char(254) NOT NULL DEFAULT '',
+  `observa2` char(254) NOT NULL DEFAULT '',
+  `observa3` char(254) NOT NULL DEFAULT '',
+  `observa4` char(254) NOT NULL DEFAULT '',
+  `fecharp` char(8) NOT NULL,
+  `actividadrp` int(10) unsigned NOT NULL DEFAULT '0',
+  `numerorp` int(10) unsigned NOT NULL,
+  `deposito` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idremitprovp`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `remitosprovp`
+--
+
+/*!40000 ALTER TABLE `remitosprovp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `remitosprovp` ENABLE KEYS */;
+
+
+--
+-- Definition of table `servicios`
+--
+
+DROP TABLE IF EXISTS `servicios`;
+CREATE TABLE `servicios` (
+  `servicio` int(10) unsigned NOT NULL,
+  `detalle` char(100) NOT NULL,
+  `fechaalta` char(8) NOT NULL,
+  `diasvenc2` int(10) unsigned NOT NULL,
+  `diasvenc3` int(10) unsigned NOT NULL,
+  `diasdescon` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`servicio`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `servicios`
+--
+
+/*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
+INSERT INTO `servicios` (`servicio`,`detalle`,`fechaalta`,`diasvenc2`,`diasvenc3`,`diasdescon`) VALUES 
+ (2,'RADIO FM 93.5','20160511',10,2,13),
+ (3,'SEPELIO','20161112',10,15,20);
+/*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
+
+
+--
+-- Definition of table `serviciosimpu`
+--
+
+DROP TABLE IF EXISTS `serviciosimpu`;
+CREATE TABLE `serviciosimpu` (
+  `impuesto` int(10) unsigned NOT NULL,
+  `servicio` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `serviciosimpu`
+--
+
+/*!40000 ALTER TABLE `serviciosimpu` DISABLE KEYS */;
+INSERT INTO `serviciosimpu` (`impuesto`,`servicio`) VALUES 
+ (2,2);
+/*!40000 ALTER TABLE `serviciosimpu` ENABLE KEYS */;
+
+
+--
+-- Definition of table `stock`
+--
+
+DROP TABLE IF EXISTS `stock`;
+CREATE TABLE `stock` (
+  `deposito` int(10) unsigned NOT NULL,
+  `articulo` char(50) NOT NULL,
+  `stock` float(13,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `stock`
+--
+
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
+
+
+--
+-- Definition of table `sucursales`
+--
+
+DROP TABLE IF EXISTS `sucursales`;
+CREATE TABLE `sucursales` (
+  `sucursal` int(10) unsigned NOT NULL,
+  `detalle` char(200) NOT NULL,
+  PRIMARY KEY (`sucursal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sucursales`
+--
+
+/*!40000 ALTER TABLE `sucursales` DISABLE KEYS */;
+INSERT INTO `sucursales` (`sucursal`,`detalle`) VALUES 
+ (1,'SUCURSAL 1'),
+ (2,'SUCURSAL 2'),
+ (3,'SUCURSAL 3');
+/*!40000 ALTER TABLE `sucursales` ENABLE KEYS */;
+
+
+--
+-- Definition of table `sucursalpventa`
+--
+
+DROP TABLE IF EXISTS `sucursalpventa`;
+CREATE TABLE `sucursalpventa` (
+  `sucursal` int(10) unsigned NOT NULL,
+  `pventa` int(10) unsigned NOT NULL,
+  `fechaini` char(8) NOT NULL,
+  `fechabaja` char(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sucursalpventa`
+--
+
+/*!40000 ALTER TABLE `sucursalpventa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sucursalpventa` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tablasidx`
+--
+
+DROP TABLE IF EXISTS `tablasidx`;
+CREATE TABLE `tablasidx` (
+  `idindex` int(10) unsigned NOT NULL,
+  `tabla` char(50) NOT NULL,
+  `campo` char(50) NOT NULL,
+  `tipocampo` char(10) NOT NULL,
+  `maxvalorc` char(50) NOT NULL,
+  `maxvalori` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idindex`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tablasidx`
+--
+
+/*!40000 ALTER TABLE `tablasidx` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tablasidx` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tarjetacredito`
+--
+
+DROP TABLE IF EXISTS `tarjetacredito`;
+CREATE TABLE `tarjetacredito` (
+  `idtarjeta` int(10) unsigned NOT NULL DEFAULT '0',
+  `nombre` char(254) NOT NULL,
+  `idbanco` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idtarjeta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tarjetacredito`
+--
+
+/*!40000 ALTER TABLE `tarjetacredito` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tarjetacredito` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tarjetacuotas`
+--
+
+DROP TABLE IF EXISTS `tarjetacuotas`;
+CREATE TABLE `tarjetacuotas` (
+  `idtarjetacta` int(10) unsigned NOT NULL,
+  `idtarjeta` int(10) unsigned NOT NULL,
+  `cuotas` int(10) unsigned NOT NULL,
+  `razon` float(13,4) NOT NULL,
+  PRIMARY KEY (`idtarjetacta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tarjetacuotas`
+--
+
+/*!40000 ALTER TABLE `tarjetacuotas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tarjetacuotas` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipocajabanco`
+--
+
+DROP TABLE IF EXISTS `tipocajabanco`;
+CREATE TABLE `tipocajabanco` (
+  `idtipocta` int(10) unsigned NOT NULL,
+  `detalle` char(254) NOT NULL,
+  `abrevia` char(50) NOT NULL,
+  PRIMARY KEY (`idtipocta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipocajabanco`
+--
+
+/*!40000 ALTER TABLE `tipocajabanco` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipocajabanco` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipocobrosdeta`
+--
+
+DROP TABLE IF EXISTS `tipocobrosdeta`;
+CREATE TABLE `tipocobrosdeta` (
+  `puntovta` int(10) unsigned NOT NULL,
+  `idcomproba` int(10) unsigned zerofill NOT NULL,
+  `actividad` int(10) unsigned NOT NULL,
+  `numero` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `idregicomp` int(10) unsigned NOT NULL,
+  `tipopago` int(10) unsigned NOT NULL,
+  `serie` char(10) NOT NULL,
+  `cheque` int(10) unsigned NOT NULL,
+  `banco` int(10) unsigned NOT NULL,
+  `filial` int(10) unsigned NOT NULL,
+  `cp` char(50) NOT NULL,
+  `detercero` char(1) NOT NULL,
+  `importe` float(13,4) NOT NULL,
+  `codigocta` char(20) NOT NULL,
+  `nombrecta` char(100) NOT NULL,
+  `fechaentre` char(8) NOT NULL,
+  `entregadoa` char(254) NOT NULL,
+  `fechaemisi` char(8) NOT NULL,
+  `fechavence` char(8) NOT NULL,
+  `alaordende` char(254) NOT NULL,
+  `librador` char(254) NOT NULL,
+  `loentrega` char(254) NOT NULL,
+  `cuenta` char(50) NOT NULL,
+  `idtipocomp` int(10) unsigned NOT NULL,
+  `idcartera` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`puntovta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipocobrosdeta`
+--
+
+/*!40000 ALTER TABLE `tipocobrosdeta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipocobrosdeta` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipocompro`
+--
+
+DROP TABLE IF EXISTS `tipocompro`;
+CREATE TABLE `tipocompro` (
+  `idtipocom` int(10) unsigned NOT NULL,
+  `detalle` char(100) NOT NULL,
+  `opera` int(11) NOT NULL,
+  `abrevia` char(50) NOT NULL,
+  `destino` char(50) NOT NULL DEFAULT '',
+  `editable` char(1) NOT NULL,
+  PRIMARY KEY (`idtipocom`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipocompro`
+--
+
+/*!40000 ALTER TABLE `tipocompro` DISABLE KEYS */;
+INSERT INTO `tipocompro` (`idtipocom`,`detalle`,`opera`,`abrevia`,`destino`,`editable`) VALUES 
+ (1,'FACTURA',1,'FACTURA','S','N'),
+ (2,'NOTA DE PEDIDO',-1,'NOTA DE PEDIDO','F','S'),
+ (3,'ID AJUSTE DE STOCK',0,'AJUSTE DE STOCK','S','N'),
+ (4,'AJUSTE DE STOCK',0,'STOCK','S','N');
+/*!40000 ALTER TABLE `tipocompro` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipocuenta`
+--
+
+DROP TABLE IF EXISTS `tipocuenta`;
+CREATE TABLE `tipocuenta` (
+  `idtipo` int(10) unsigned NOT NULL,
+  `detalle` char(100) NOT NULL,
+  `abrevia` char(50) NOT NULL,
+  PRIMARY KEY (`idtipo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipocuenta`
+--
+
+/*!40000 ALTER TABLE `tipocuenta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipocuenta` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipodocumento`
+--
+
+DROP TABLE IF EXISTS `tipodocumento`;
+CREATE TABLE `tipodocumento` (
+  `tipodoc` char(3) NOT NULL,
+  `tipo` char(3) NOT NULL,
+  PRIMARY KEY (`tipodoc`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tipodocumento`
+--
+
+/*!40000 ALTER TABLE `tipodocumento` DISABLE KEYS */;
+INSERT INTO `tipodocumento` (`tipodoc`,`tipo`) VALUES 
+ ('1','DNI'),
+ ('2','CN');
+/*!40000 ALTER TABLE `tipodocumento` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipomovctap`
+--
+
+DROP TABLE IF EXISTS `tipomovctap`;
+CREATE TABLE `tipomovctap` (
+  `idtipomovi` int(10) unsigned NOT NULL,
+  `detalle` char(254) NOT NULL,
+  `abrevia` char(50) NOT NULL,
+  `opera` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idtipomovi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipomovctap`
+--
+
+/*!40000 ALTER TABLE `tipomovctap` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipomovctap` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipomovotint`
+--
+
+DROP TABLE IF EXISTS `tipomovotint`;
+CREATE TABLE `tipomovotint` (
+  `idmovotint` int(10) unsigned NOT NULL DEFAULT '0',
+  `detalle` char(254) NOT NULL DEFAULT '',
+  `operacion` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idmovotint`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipomovotint`
+--
+
+/*!40000 ALTER TABLE `tipomovotint` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipomovotint` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipomstock`
+--
+
+DROP TABLE IF EXISTS `tipomstock`;
+CREATE TABLE `tipomstock` (
+  `idtipomov` int(10) unsigned NOT NULL,
+  `descmov` char(200) NOT NULL,
+  `ie` char(1) NOT NULL,
+  `reporte` char(100) NOT NULL,
+  `generaeti` char(1) NOT NULL,
+  `deposito` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idtipomov`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipomstock`
+--
+
+/*!40000 ALTER TABLE `tipomstock` DISABLE KEYS */;
+INSERT INTO `tipomstock` (`idtipomov`,`descmov`,`ie`,`reporte`,`generaeti`,`deposito`) VALUES 
+ (1,'EGRESO POR AJUSTE DE STOCK','E','AJUSTE DE STOCK','N',0),
+ (2,'INGRESO POR AJUSTE DE STOCK','I','AJUSTE DE STOCK','S',0);
+/*!40000 ALTER TABLE `tipomstock` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tiponp`
+--
+
+DROP TABLE IF EXISTS `tiponp`;
+CREATE TABLE `tiponp` (
+  `idtiponp` int(10) unsigned NOT NULL DEFAULT '0',
+  `descpe` char(254) NOT NULL,
+  `stock` char(1) NOT NULL,
+  PRIMARY KEY (`idtiponp`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tiponp`
+--
+
+/*!40000 ALTER TABLE `tiponp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tiponp` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipoot`
+--
+
+DROP TABLE IF EXISTS `tipoot`;
+CREATE TABLE `tipoot` (
+  `idtipoot` int(10) unsigned NOT NULL,
+  `descot` char(254) NOT NULL,
+  PRIMARY KEY (`idtipoot`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tipoot`
+--
+
+/*!40000 ALTER TABLE `tipoot` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipoot` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tipopagos`
+--
+
+DROP TABLE IF EXISTS `tipopagos`;
+CREATE TABLE `tipopagos` (
+  `idtipopago` int(10) unsigned NOT NULL,
+  `detalle` char(254) NOT NULL,
+  PRIMARY KEY (`idtipopago`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tipopagos`
+--
+
+/*!40000 ALTER TABLE `tipopagos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipopagos` ENABLE KEYS */;
+
+
+--
+-- Definition of table `transfeh`
+--
+
+DROP TABLE IF EXISTS `transfeh`;
+CREATE TABLE `transfeh` (
+  `idtransfep` int(10) unsigned NOT NULL,
+  `idtipopago` int(10) unsigned NOT NULL,
+  `idcheque` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `importe` float(13,4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transfeh`
+--
+
+/*!40000 ALTER TABLE `transfeh` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transfeh` ENABLE KEYS */;
+
+
+--
+-- Definition of table `transfep`
+--
+
+DROP TABLE IF EXISTS `transfep`;
+CREATE TABLE `transfep` (
+  `idtransfep` int(10) unsigned NOT NULL,
+  `idcomproba` int(10) unsigned NOT NULL,
+  `pventa` int(10) unsigned NOT NULL,
+  `numero` int(10) unsigned NOT NULL,
+  `fecha` char(8) NOT NULL,
+  `importe` float(13,4) NOT NULL,
+  `comprobante` char(254) NOT NULL,
+  `idcuentao` int(10) unsigned NOT NULL,
+  `idcuentad` int(10) unsigned NOT NULL,
+  `observa` char(254) NOT NULL,
+  PRIMARY KEY (`idtransfep`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transfep`
+--
+
+/*!40000 ALTER TABLE `transfep` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transfep` ENABLE KEYS */;
+
+
+--
+-- Definition of table `transporte`
+--
+
+DROP TABLE IF EXISTS `transporte`;
+CREATE TABLE `transporte` (
+  `transporte` int(10) unsigned NOT NULL,
+  `entidad` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`transporte`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transporte`
+--
+
+/*!40000 ALTER TABLE `transporte` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transporte` ENABLE KEYS */;
+
+
+--
+-- Definition of table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+  `usuario` char(15) NOT NULL DEFAULT '',
+  `nombre` char(100) NOT NULL DEFAULT '',
+  `clave` char(15) NOT NULL DEFAULT '',
+  `jerarquia` char(60) NOT NULL DEFAULT '',
+  `seccion` char(20) NOT NULL DEFAULT '',
+  `email` char(80) NOT NULL,
+  `habilitado` char(1) NOT NULL DEFAULT 'S',
+  PRIMARY KEY (`usuario`),
+  KEY `usuario` (`usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` (`usuario`,`nombre`,`clave`,`jerarquia`,`seccion`,`email`,`habilitado`) VALUES 
+ ('FEDE','FEDERICO CARRION','F','Supervisor','INGENIERIA','','S'),
+ ('TULIO','Tulio Rossi','A','Supervisor','INGENIERIA','trossi@cosemar.com.ar','S');
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+
+
+--
+-- Definition of table `vendedores`
+--
+
+DROP TABLE IF EXISTS `vendedores`;
+CREATE TABLE `vendedores` (
+  `vendedor` int(10) unsigned NOT NULL DEFAULT '0',
+  `nombre` char(200) NOT NULL,
+  `domicilio` char(254) NOT NULL,
+  `localidad` char(10) NOT NULL,
+  `dni` char(20) NOT NULL,
+  `telefono` char(100) NOT NULL,
+  `email` char(254) NOT NULL,
+  `tipodoc` char(3) NOT NULL,
+  PRIMARY KEY (`vendedor`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendedores`
+--
+
+/*!40000 ALTER TABLE `vendedores` DISABLE KEYS */;
+INSERT INTO `vendedores` (`vendedor`,`nombre`,`domicilio`,`localidad`,`dni`,`telefono`,`email`,`tipodoc`) VALUES 
+ (1,'Federico Carrion','Ricardo Gutierrez 1962','1','38374141','3483485750','fedecarrion137@gmail.com','2'),
+ (2,'Tulio Rossi','Avellaneda 6963','3','25826321','3424376983','tulior@cosemar.com','1'),
+ (3,'Javier','Pampa 232','1','35555666','3483485751','javi@gmail.com','2'),
+ (4,'ROXANA','1 DE MAYO','4','3692815','498389','roxy@gmail.com','1'),
+ (7,'CLAUDIO','25 DE MAYO','5','1231333','12312','ASDA','1'),
+ (8,'AAAAAAA','AAAAAAAAAA','1','22141491','ASSSA','DSD','1');
+/*!40000 ALTER TABLE `vendedores` ENABLE KEYS */;
+
+
+--
+-- Definition of table `zonas`
+--
+
+DROP TABLE IF EXISTS `zonas`;
+CREATE TABLE `zonas` (
+  `zona` int(10) unsigned NOT NULL,
+  `detalle` char(254) NOT NULL,
+  PRIMARY KEY (`zona`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `zonas`
+--
+
+/*!40000 ALTER TABLE `zonas` DISABLE KEYS */;
+INSERT INTO `zonas` (`zona`,`detalle`) VALUES 
+ (1,'MARGARITA - SAN JUSTO'),
+ (2,'SANTA FE - ROSARIO');
+/*!40000 ALTER TABLE `zonas` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
