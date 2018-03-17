@@ -834,20 +834,34 @@ ENDFUNC
 * RECIBE COMO PARAMETROS EL ID DEL COMPROBANTE, EL PUNTO DE VENTA Y EL VALOR A INCREMENTAR EL NUMERO
 * DEVUELVE EL VALOR INCREMENTADO SEGUN EL PARAMETRO DE INCREMENTO RECIBIDO
 FUNCTION maxnumerocom
-PARAMETERS p_idcomproba, p_puntov, v_incre 
+PARAMETERS p_idcomproba, p_pventa, v_incre 
 
 vconeccionF = abreycierracon(0,_SYSSCHEMA)
 
+*sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
+*sqlmatriz(2)=" WHERE puntov = "+ALLTRIM(p_puntov)+" and idnumera in ( select idnumera from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
+*verror=sqlrun(vconeccionF,"upmaximo")
+*IF verror=.f.  
+*    MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de Comprobantes ",0+48+0,"Error")
+*ENDIF 
+
 sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
-sqlmatriz(2)=" WHERE puntov = "+ALLTRIM(p_puntov)+" and idnumera in ( select idnumera from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
+sqlmatriz(2)=" WHERE pventa = "+ALLTRIM(STR(p_pventa))+" and idcomproba = "+ALLTRIM(STR(p_idcomproba))
 verror=sqlrun(vconeccionF,"upmaximo")
 IF verror=.f.  
     MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de Comprobantes ",0+48+0,"Error")
 ENDIF 
 
-sqlmatriz(1)="select a.maxnumero as maxnro FROM comprobantes c "
-sqlmatriz(2)="LEFT JOIN compactiv a ON a.idnumera = c.idnumera " 
-sqlmatriz(3)="WHERE c.idcomproba = "+ STR(p_idcomproba) + " AND a.puntov = " + p_puntov
+
+
+*sqlmatriz(1)="select a.maxnumero as maxnro FROM comprobantes c "
+*sqlmatriz(2)="LEFT JOIN compactiv a ON a.idnumera = c.idnumera " 
+*sqlmatriz(3)="WHERE c.idcomproba = "+ STR(p_idcomproba) + " AND a.puntov = " + p_puntov
+
+
+sqlmatriz(1)="select maxnumero as maxnro FROM compactiv "
+sqlmatriz(2)="WHERE idcomproba = "+ ALLTRIM(STR(p_idcomproba)) + " AND pventa = " + ALLTRIM(STR(p_pventa))
+
 
 verror=sqlrun(vconeccionF,"maximo")
 IF verror=.f.  
@@ -1030,8 +1044,8 @@ PARAMETERS p_idFactura
 
 			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
 			
-			sqlmatriz(1)="Select f.*, a.codigo as codAfip from facturas f left join comprobantes c on f.idcomproba = c.idcomproba "
-			sqlmatriz(2)=" left join afipcompro a on  c.idafipcom = a.idafipcom"
+			sqlmatriz(1)="Select f.*, a.codigo as codAfip, p.puntov from facturas f left join comprobantes c on f.idcomproba = c.idcomproba "
+			sqlmatriz(2)=" left join afipcompro a on  c.idafipcom = a.idafipcom left join puntosventa p on f.pventa = p.pventa "
 			sqlmatriz(3)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))
 
 			verror=sqlrun(vconeccionF,"factu_sql")
@@ -1104,7 +1118,7 @@ PARAMETERS p_idFactura
 		*2- Servicios
 		*3- Productos y servicios
 			v_concepto = _SYSCONCEPTOAFIP
-			v_ptoVta = factu_sql.pventa
+			v_ptoVta = factu_sql.puntov 
 
 			v_1 =	loBasicHttpBinding_IServicio.setIDComprobante(v_idComprobante)
 
