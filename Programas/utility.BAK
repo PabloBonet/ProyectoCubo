@@ -502,7 +502,7 @@ ENDFUNC
 
 
 
-
+*** COPIAR IMAGENES ***
 FUNCTION copyarchivo
 	PARAMETERS p_archivo, p_pathn
 	
@@ -1625,69 +1625,31 @@ PARAMETERS p_idRecibo
 	
 	IF v_idrecibo > 0
 		
-		*** Busco los datos de la factura y el detalle
-		IF v_esElectronica  = .T.
-
+		*** Busco los datos del recibo
+					
 			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
 		
+			sqlmatriz(1)="Select * from recibos" 
+			sqlmatriz(4)=" where idrecibo = "+ ALLTRIM(STR(v_idrecibo))
 
-			sqlmatriz(1)="Select *,c.detalle as detIVA, v.nombre as nomVend from facturas f left join detafactu d on f.idfactura = d.idfactura " 
-			sqlmatriz(2)=" left join facturasfe fe on f.idfactura = fe.idfactura left join condfiscal c on f.iva = c.iva"
-			sqlmatriz(3)=" left join vendedores v on f.vendedor = v.vendedor"
-			sqlmatriz(4)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))+ " and fe.resultado = 'A'"
-			
-			verror=sqlrun(vconeccionF,"fac_det_sql")
+			verror=sqlrun(vconeccionF,"recibo_sql")
 			IF verror=.f.  
-			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  del recibo",0+48+0,"Error")
 			ENDIF
 		
-		ELSE
-			
-			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
-		
-			sqlmatriz(1)="Select *,c.detalle as detIVA from facturas f left join detafactu d on f.idfactura = d.idfactura " 
-			sqlmatriz(2)=" left join condfiscal c on f.iva = c.iva"
-			sqlmatriz(3)=" left join vendedores v on f.vendedor = v.vendedor"
-			sqlmatriz(4)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))
+		 		
 
-			verror=sqlrun(vconeccionF,"fac_det_sql")
-			IF verror=.f.  
-			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
-			ENDIF
-		
-		ENDIF 
-		
-		
-		*** Busco los datos de los impuestos
-			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
-		
-			sqlmatriz(1)="Select fi.detalle as detaIMP, fi.neto as netoIMP, fi.razon as razonIMP, fi.importe as importeIMP, ai.tipo as tipoIMP "
-			sqlmatriz(2)=" from facturasimp fi" 
-			sqlmatriz(3)=" left join impuestos i on fi.impuesto = i.impuesto "
-			sqlmatriz(4)=" left join afipimpuestos ai on i.idafipimp = ai.idafipimp "
-			sqlmatriz(5)=" where fi.idfactura = "+ ALLTRIM(STR(v_idfactura))
-
-			verror=sqlrun(vconeccionF,"impuestos_sql")
-			IF verror=.f.  
-			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
-			ENDIF
-		
-
-		SELECT * FROM fac_det_sql INTO TABLE .\factu
-		
-		SELECT * FROM impuestos_sql INTO TABLE .\ImpIVA WHERE ALLTRIM(tipoIMP) = "IVA"
-		
-		SELECT * FROM impuestos_sql INTO TABLE .\ImpTRIB WHERE ALLTRIM(tipoIMP) = "TRIBUTO"
-		
-		SELECT factu
+		SELECT * FROM recibo_sql INTO TABLE .\recibo
+				
+		SELECT recibo
 		
 		IF NOT EOF()
 		
-			v_idcomproba = factu.idcomproba
-			DO FORM reporteform WITH "factu;impIva;impTRIB","facturasrc;impIVArc;impTRIBrc",v_idcomproba
+			v_idcomproba = recibo.idcomproba
+			DO FORM reporteform WITH "recibo","reciborc",v_idcomproba
 			
 		ELSE
-			MESSAGEBOX("Error al cargar la factura para imprimir",0+48+0,"Error al cargar la factura")
+			MESSAGEBOX("Error al cargar el recibo para imprimir",0+48+0,"Error al cargar el recibo")
 			RETURN 	
 		ENDIF 
 		
