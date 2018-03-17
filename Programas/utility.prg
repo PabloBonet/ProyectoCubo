@@ -838,26 +838,16 @@ PARAMETERS p_idcomproba, p_puntov, v_incre
 
 vconeccionF = abreycierracon(0,_SYSSCHEMA)
 
-
-
 sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
-sqlmatriz(2)=" WHERE puntov = '"+ALLTRIM(p_puntov)+"' and idcomproba in ( select idcomproba from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
+sqlmatriz(2)=" WHERE puntov = "+ALLTRIM(p_puntov)+" and idnumera in ( select idnumera from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
 verror=sqlrun(vconeccionF,"upmaximo")
 IF verror=.f.  
     MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de Comprobantes ",0+48+0,"Error")
 ENDIF 
 
-
-*sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
-*sqlmatriz(2)=" WHERE pventa = "+ALLTRIM(STR(v_puntoVenta))+" and idnumera in ( select idnumera from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
-*verror=sqlrun(vconeccionF,"upmaximo")
-*IF verror=.f.  
-*    MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de Comprobantes ",0+48+0,"Error")
-*ENDIF 
-
 sqlmatriz(1)="select a.maxnumero as maxnro FROM comprobantes c "
-sqlmatriz(2)=" LEFT JOIN compactiv a ON a.idcomproba = c.idcomproba left join puntosventa pv on a.pventa = pv.pventa" 
-sqlmatriz(3)=" WHERE c.idcomproba = "+ ALLTRIM(STR(p_idcomproba)) + " AND pv.puntov = '" + ALLTRIM(p_puntov)+"'"
+sqlmatriz(2)="LEFT JOIN compactiv a ON a.idnumera = c.idnumera " 
+sqlmatriz(3)="WHERE c.idcomproba = "+ STR(p_idcomproba) + " AND a.puntov = " + p_puntov
 
 verror=sqlrun(vconeccionF,"maximo")
 IF verror=.f.  
