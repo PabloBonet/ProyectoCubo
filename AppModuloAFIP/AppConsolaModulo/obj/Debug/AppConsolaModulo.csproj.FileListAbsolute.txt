@@ -11,3 +11,4 @@ C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaMod
 C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ClienteLoginCms_CS.dll
 C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\LibreriaClases.pdb
 C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ClienteLoginCms_CS.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Debug\ClienteLoginCms_CS.XmlSerializers.dll

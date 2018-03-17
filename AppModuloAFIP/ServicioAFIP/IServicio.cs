@@ -165,6 +165,11 @@ namespace ServicioAFIP
         [OperationContract]
         bool iniciarServicio(int ptoVta);
 
+        [OperationContract]
+        bool comprobanteCargado();
+
+        [OperationContract]
+        bool servicioIniciado();
         // TODO: agregue aquí sus operaciones de servicio
     }
 

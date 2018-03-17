@@ -240,3 +240,768 @@ No se puede obtener acceso a un archivo cerrado.
 
 [23/01/2018 9:47:44] Hubo un error al autorizar el comprobante. Se obtuvo una respuesta Nula
 
+[6/3/2018 18:41:28] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 18:41:45] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:03:23] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:05:02] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:20:10] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:24:20] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:32:24] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:42:06] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:46:39] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:51:26] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:51:32] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 19:58:40] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:00:41] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:03:08] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:05:06] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:06:05] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:13:47] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:25:25] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:27:23] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:30:31] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:34:20] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:36:13] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:36:49] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:37:22] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:38:00] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:40:13] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:40:49] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:43:06] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:43:40] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:46:59] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[6/3/2018 20:48:03] Ticket de Acceso obtenido, válido hasta: 7/3/2018 06:41:30
+
+
+[7/3/2018 18:58:20] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 18:59:56] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:02:31] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:03:09] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:09:04] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:12:38] Hubo un error al autorizar el comprobante. No se pudieron obtener las observaciones
+
+[7/3/2018 19:13:24] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:35:31] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:35:59] [Cod: 10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+[7/3/2018 19:36:01] Comprobante RECHAZADO (ID 1) 
+[10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+
+
+[7/3/2018 19:37:23] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:37:39] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:38:12] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:40:02] [Cod: 10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+[7/3/2018 19:40:09] Comprobante RECHAZADO (ID 1) 
+[10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+
+
+[7/3/2018 19:44:13] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:44:55] [Cod: 10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+[7/3/2018 19:44:58] Comprobante RECHAZADO (ID 1) 
+[10048] El campo  'Importe Total' ImpTotal, debe ser igual  a la  suma de ImpTotConc + ImpNeto + ImpOpEx + ImpTrib + ImpIVA.
+
+
+
+[7/3/2018 19:47:15] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:53:33] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[7/3/2018 19:54:08] [Cod: 10070] Si ImpNeto es mayor a 0, el objeto AlicIva es obligatorio y no debe ser nulo.
+
+[7/3/2018 19:54:08] Comprobante RECHAZADO (ID 1) 
+[10070] Si ImpNeto es mayor a 0, el objeto AlicIva es obligatorio y no debe ser nulo.
+
+
+
+[7/3/2018 19:58:13] Ticket de Acceso obtenido, válido hasta: 8/3/2018 06:58:22
+
+
+[8/3/2018 17:40:56] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 17:47:27] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 17:48:15] [Cod: 10070] Si ImpNeto es mayor a 0, el objeto AlicIva es obligatorio y no debe ser nulo.
+
+[8/3/2018 17:48:17] Comprobante RECHAZADO (ID 1) 
+[10070] Si ImpNeto es mayor a 0, el objeto AlicIva es obligatorio y no debe ser nulo.
+
+
+
+[8/3/2018 17:48:36] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:06:21] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:10:29] [Cod: 10070] Si ImpNeto es mayor a 0, el objeto AlicIva es obligatorio y no debe ser nulo.
+
+[8/3/2018 18:10:36] Comprobante RECHAZADO (ID 1) 
+[10070] Si ImpNeto es mayor a 0, el objeto AlicIva es obligatorio y no debe ser nulo.
+
+
+
+[8/3/2018 18:11:02] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:22:08] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:22:39] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:23:32] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:33:51] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:40:21] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:42:57] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:43:23] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:47:54] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 18:54:52] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:02:25] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:07:48] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:12:46] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:16:48] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:20:28] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:21:40] Comprobante AUTORIZADO (ID 3): 0003 - 00000015. CAE: 68107639036127
+
+
+[8/3/2018 19:26:00] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:31:28] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:32:17] Comprobante AUTORIZADO (ID 5): 0003 - 00000016. CAE: 68107639037495
+
+
+[8/3/2018 19:32:34] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:34:56] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[8/3/2018 19:35:34] Comprobante AUTORIZADO (ID 6): 0003 - 00000017. CAE: 68107639037877
+
+
+[8/3/2018 19:36:06] Ticket de Acceso obtenido, válido hasta: 9/3/2018 05:40:56
+
+
+[9/3/2018 18:24:27] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 18:31:11] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 18:42:31] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 18:42:56] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 18:47:31] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 18:48:09] Comprobante AUTORIZADO (ID 9): 0003 - 00000018. CAE: 68107639198140
+
+
+[9/3/2018 18:53:18] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 18:54:35] Comprobante AUTORIZADO (ID 10): 0003 - 00000019. CAE: 68107639198933
+
+
+[9/3/2018 19:12:20] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:12:50] Comprobante AUTORIZADO (ID 11): 0003 - 00000020. CAE: 68107639201091
+
+
+[9/3/2018 19:23:02] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:23:33] [Cod: 10051] Los importes informados en AlicIVA no se corresponden con los porcentajes.
+
+[9/3/2018 19:23:36] Comprobante RECHAZADO (ID 12) 
+[10051] Los importes informados en AlicIVA no se corresponden con los porcentajes.
+
+
+
+[9/3/2018 19:27:55] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:28:02] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:28:46] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:29:21] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:29:46] Comprobante AUTORIZADO (ID 13): 0003 - 00000021. CAE: 68107639202709
+
+
+[9/3/2018 19:32:10] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:32:33] Comprobante AUTORIZADO (ID 14): 0003 - 00000022. CAE: 68107639202990
+
+
+[9/3/2018 19:37:34] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:37:55] Comprobante AUTORIZADO (ID 15): 0003 - 00000023. CAE: 68107639203475
+
+
+[9/3/2018 19:40:43] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:41:04] Comprobante AUTORIZADO (ID 16): 0003 - 00000024. CAE: 68107639203755
+
+
+[9/3/2018 19:43:29] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:43:50] Comprobante AUTORIZADO (ID 17): 0003 - 00000025. CAE: 68107639203988
+
+
+[9/3/2018 19:47:59] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:48:25] Comprobante AUTORIZADO (ID 18): 0003 - 00000026. CAE: 68107639204387
+
+
+[9/3/2018 19:53:21] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:53:48] Comprobante AUTORIZADO (ID 19): 0003 - 00000027. CAE: 68107639205008
+
+
+[9/3/2018 19:55:49] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:56:16] Comprobante AUTORIZADO (ID 20): 0003 - 00000028. CAE: 68107639205257
+
+
+[9/3/2018 19:57:39] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 19:58:00] Comprobante AUTORIZADO (ID 21): 0003 - 00000029. CAE: 68107639205508
+
+
+[9/3/2018 20:13:03] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 20:13:18] Comprobante AUTORIZADO (ID 22): 0003 - 00000030. CAE: 68107639207393
+
+
+[9/3/2018 20:17:04] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 20:17:17] Comprobante AUTORIZADO (ID 23): 0003 - 00000031. CAE: 68107639207893
+
+
+[9/3/2018 20:18:43] Ticket de Acceso obtenido, válido hasta: 10/3/2018 06:24:27
+
+
+[9/3/2018 20:18:56] Comprobante AUTORIZADO (ID 24): 0003 - 00000032. CAE: 68107639208085
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 1
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 2
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 3
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 4
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 5
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 6
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 7
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 8
+
+
+[10/3/2018 09:11:41] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intento: 9
+
+
+[10/3/2018 09:11:41] No se pudo obtener el Ticket de acceso (Intentos excedidos)
+
+
+[10/3/2018 09:18:21] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:21] No se pudo obtener el Ticket de acceso (Intento: 1
+
+
+[10/3/2018 09:18:21] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:21] No se pudo obtener el Ticket de acceso (Intento: 2
+
+
+[10/3/2018 09:18:21] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:21] No se pudo obtener el Ticket de acceso (Intento: 3
+
+
+[10/3/2018 09:18:21] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:21] No se pudo obtener el Ticket de acceso (Intento: 4
+
+
+[10/3/2018 09:18:21] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:21] No se pudo obtener el Ticket de acceso (Intento: 5
+
+
+[10/3/2018 09:18:21] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:21] No se pudo obtener el Ticket de acceso (Intento: 6
+
+
+[10/3/2018 09:18:22] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:22] No se pudo obtener el Ticket de acceso (Intento: 7
+
+
+[10/3/2018 09:18:22] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:22] No se pudo obtener el Ticket de acceso (Intento: 8
+
+
+[10/3/2018 09:18:22] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:22] No se pudo obtener el Ticket de acceso (Intento: 9
+
+
+[10/3/2018 09:18:22] No se pudo obtener el Ticket de acceso (Intentos excedidos)
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 1
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 2
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 3
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 4
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 5
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 6
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 7
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 8
+
+
+[10/3/2018 09:18:50] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intento: 9
+
+
+[10/3/2018 09:18:50] No se pudo obtener el Ticket de acceso (Intentos excedidos)
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 1
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 2
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 3
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 4
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 5
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 6
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 7
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 8
+
+
+[10/3/2018 09:19:07] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error INVOCANDO al servicio WSAA : No se puede resolver el nombre remoto: 'wsaahomo.afip.gov.ar'
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intento: 9
+
+
+[10/3/2018 09:19:07] No se pudo obtener el Ticket de acceso (Intentos excedidos)
+
+
+[10/3/2018 09:20:55] Ticket de Acceso obtenido, válido hasta: 10/3/2018 21:20:56
+
+
+[10/3/2018 09:21:25] Comprobante AUTORIZADO (ID 27): 0003 - 00000033. CAE: 68107639224469
+
+
+[10/3/2018 09:24:36] Ticket de Acceso obtenido, válido hasta: 10/3/2018 21:20:56
+
+
+[10/3/2018 09:25:04] Ticket de Acceso obtenido, válido hasta: 10/3/2018 21:20:56
+
+
+[10/3/2018 09:25:46] Ticket de Acceso obtenido, válido hasta: 10/3/2018 21:20:56
+
+
+[10/3/2018 09:26:08] Comprobante AUTORIZADO (ID 28): 0003 - 00000034. CAE: 68107639224689
+
+
+[12/3/2018 21:06:50] Ticket de Acceso obtenido, válido hasta: 13/3/2018 09:06:50
+
+
+[12/3/2018 21:07:07] Comprobante AUTORIZADO (ID 29): 0003 - 00000035. CAE: 68117639499506
+
+
+[12/3/2018 21:15:01] Ticket de Acceso obtenido, válido hasta: 13/3/2018 09:06:50
+
+
+[12/3/2018 21:15:16] Comprobante AUTORIZADO (ID 30): 0003 - 00000036. CAE: 68117639500324
+
+
+[12/3/2018 21:20:09] Ticket de Acceso obtenido, válido hasta: 13/3/2018 09:06:50
+
+
+[12/3/2018 21:20:34] Ticket de Acceso obtenido, válido hasta: 13/3/2018 09:06:50
+
+
+[12/3/2018 21:20:54] Comprobante AUTORIZADO (ID 31): 0003 - 00000037. CAE: 68117639500882
+
+
+[12/3/2018 21:23:08] Ticket de Acceso obtenido, válido hasta: 13/3/2018 09:06:50
+
+
+[12/3/2018 21:23:23] Comprobante AUTORIZADO (ID 32): 0003 - 00000038. CAE: 68117639501090
+
+
+[13/3/2018 18:15:18] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:15:41] Comprobante AUTORIZADO (ID 33): 0003 - 00000039. CAE: 68117639658552
+
+
+[13/3/2018 18:18:49] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:19:32] Comprobante AUTORIZADO (ID 34): 0003 - 00000040. CAE: 68117639658934
+
+
+[13/3/2018 18:21:49] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:22:04] Comprobante AUTORIZADO (ID 35): 0003 - 00000041. CAE: 68117639659113
+
+
+[13/3/2018 18:23:20] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:23:36] Comprobante AUTORIZADO (ID 36): 0003 - 00000042. CAE: 68117639659286
+
+
+[13/3/2018 18:35:43] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:35:59] Comprobante AUTORIZADO (ID 37): 0003 - 00000043. CAE: 68117639660329
+
+
+[13/3/2018 18:52:40] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:52:54] Comprobante AUTORIZADO (ID 38): 0003 - 00000044. CAE: 68117639661993
+
+
+[13/3/2018 18:55:26] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 18:55:40] Comprobante AUTORIZADO (ID 39): 0003 - 00000045. CAE: 68117639662245
+
+
+[13/3/2018 19:18:52] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 19:19:07] Comprobante AUTORIZADO (ID 40): 0003 - 00000046. CAE: 68117639664776
+
+
+[13/3/2018 19:31:48] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 19:32:03] Comprobante AUTORIZADO (ID 41): 0003 - 00000047. CAE: 68117639665984
+
+
+[13/3/2018 19:36:50] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 19:37:04] Comprobante AUTORIZADO (ID 42): 0003 - 00000048. CAE: 68117639666516
+
+
+[13/3/2018 19:46:16] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 19:47:15] Ticket de Acceso obtenido, válido hasta: 14/3/2018 06:15:19
+
+
+[13/3/2018 19:47:34] Comprobante AUTORIZADO (ID 43): 0003 - 00000049. CAE: 68117639667606
+
+
+[15/3/2018 20:06:11] Ticket de Acceso obtenido, válido hasta: 16/3/2018 08:06:13
+
+
+[15/3/2018 20:06:15] Ticket de Acceso obtenido, válido hasta: 16/3/2018 08:06:13
+
+
+[15/3/2018 20:06:27] Ticket de Acceso obtenido, válido hasta: 16/3/2018 08:06:13
+
+
+[15/3/2018 20:36:53] Ticket de Acceso obtenido, válido hasta: 16/3/2018 08:06:13
+
+
+[15/3/2018 20:41:02] Ticket de Acceso obtenido, válido hasta: 16/3/2018 08:06:13
+
+
+[15/3/2018 20:45:49] Ticket de Acceso obtenido, válido hasta: 16/3/2018 08:06:13
+
+
+[16/3/2018 18:09:11] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 18:10:31] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 18:10:56] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 18:19:06] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 18:32:13] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 18:38:38] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 19:42:05] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 19:49:36] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:02:30] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:05:16] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:05:16] Comprobante AUTORIZADO (ID 54): 0004 - 00000001. CAE: 68117640042706
+
+
+[16/3/2018 20:08:03] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:14:10] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:14:10] Comprobante AUTORIZADO (ID 55): 0004 - 00000002. CAE: 68117640042748
+
+
+[16/3/2018 20:14:28] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:15:23] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:15:23] Comprobante AUTORIZADO (ID 56): 0004 - 00000003. CAE: 68117640042777
+
+
+[16/3/2018 20:16:50] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:23:10] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:23:10] Comprobante AUTORIZADO (ID 57): 0004 - 00000004. CAE: 68117640042866
+
+
+[16/3/2018 20:26:00] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:26:52] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:26:52] Comprobante AUTORIZADO (ID 58): 0004 - 00000005. CAE: 68117640042882
+
+
+[16/3/2018 20:28:49] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:30:13] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:30:13] Comprobante AUTORIZADO (ID 59): 0004 - 00000006. CAE: 68117640042895
+
+
+[16/3/2018 20:30:29] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:31:13] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:31:13] Comprobante AUTORIZADO (ID 60): 0004 - 00000007. CAE: 68117640042926
+
+
+[16/3/2018 20:35:22] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:36:20] Ticket de Acceso obtenido, válido hasta: 17/3/2018 06:09:12
+
+
+[16/3/2018 20:36:20] Comprobante AUTORIZADO (ID 61): 0004 - 00000008. CAE: 68117640042942
+
+

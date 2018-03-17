@@ -20,8 +20,10 @@ namespace LibreriaClases
         const string DEFAULT_URLWSAAWSDL_PRUEBA = "https://wsaahomo.afip.gov.ar/ws/services/LoginCms?WSDL";
         const string DEFAULT_URLWSAAWSDL_PRODUCCION = "https://wsaa.afip.gov.ar/ws/services/LoginCms?WSDL";
         const string DEFAULT_SERVICIO = "wsfe";
-        const string DEFAULT_CERTSIGNER_PRUEBA = "c:\\FE\\CERTIFICADOS\\aliascose.pfx"; //Certificado con clave privada
-        const string DEFAULT_CERTSIGNER_PRODUCCION = "c:\\FE\\CERTIFICADOS\\aliascose.pfx"; //Certificado con clave privada
+        //  const string DEFAULT_CERTSIGNER_PRUEBA = "c:\\FE\\CERTIFICADOS\\aliascose.pfx"; //Certificado con clave privada
+        const string DEFAULT_CERTSIGNER_PRUEBA = ""; //Certificado con clave privada
+        //const string DEFAULT_CERTSIGNER_PRODUCCION = "c:\\FE\\CERTIFICADOS\\aliascose.pfx"; //Certificado con clave privada
+        const string DEFAULT_CERTSIGNER_PRODUCCION = ""; //Certificado con clave privada
         const string DEFAULT_PROXY = null;
         const string DEFAULT_PROXY_USER = null;
         const string DEFAULT_PROXY_PASSWORD = null;
@@ -94,6 +96,7 @@ namespace LibreriaClases
         private StreamWriter _flujoEscritura;                //Variable para manejar el flujo de escritura
         private bool _errorConfig = false;                   //Indica si hay error de configuración
         private bool _estadoIniciado = false;                  //Indica si se realizó la configuración y el servicio está listo para ser usado
+        
         private FEClass _gestionFE = null;
         private List<string> _observaciones = new List<string>();    //lista de observaciones, utilizada principalmente para mostrar errores
         private int _ptoVta;
@@ -104,6 +107,8 @@ namespace LibreriaClases
         {
             get { return _estadoIniciado; }
         }
+
+       
 
         public FileStream ArchivoLog
         {
@@ -543,6 +548,8 @@ namespace LibreriaClases
             }
             return r;
         }
+
+       
         #endregion
 
 
