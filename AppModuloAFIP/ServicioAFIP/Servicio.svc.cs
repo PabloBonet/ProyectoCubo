@@ -1435,6 +1435,43 @@ namespace ServicioAFIP
 
             return r;
         }
+
+        /// <summary>
+        /// Comprueba que el servicio tenga un comprobante cargado controlando el ID y el Nro de documento del cliente
+        /// </summary>
+        /// <returns>True si se cargó correctamente, false en otro caso</returns>
+        public bool comprobanteCargado()
+        {
+            bool r = false;
+
+            if (gestion.EstadoIniciado)
+            {
+                if (comprobante.IDComprobante > 0 && comprobante.NroDocCliente != "")
+                {
+                    r = true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            return r;
+        }
+
+        /// <summary>
+        /// Retorna True o False si el servicio está iniciado o no
+        /// </summary>
+        /// <returns>True, servicio Iniciado, False en otro caso</returns>
+        public bool servicioIniciado()
+        {
+            bool r = false;
+
+
+            r = gestion.EstadoIniciado;
+
+            return r;
+        }
         #endregion
     }
 }
