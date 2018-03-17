@@ -573,7 +573,7 @@ FUNCTION copyimg
 	ENDIF 
 	
 	
-	nuevo_completo   = ALLTRIM(p_pathn)+ALLTRIM(a_archivo) + ".png"
+	nuevo_completo   = ALLTRIM(p_pathn)+ALLTRIM(a_archivo)
 	viejo_completo   = LOWER(ALLTRIM(p_img))
 	
 	IF ALLTRIM(UPPER(viejo_completo))==ALLTRIM(UPPER(nuevo_completo)) THEN 
@@ -635,7 +635,7 @@ ELSE
 	ENDIF 
 ENDIF
 RETURN RETORNO
-
+ENDFUNC 
 
 
 
@@ -789,16 +789,26 @@ PARAMETERS p_idcomproba, p_puntov, v_incre
 
 vconeccionF = abreycierracon(0,_SYSSCHEMA)
 
+
+
 sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
-sqlmatriz(2)=" WHERE puntov = "+ALLTRIM(p_puntov)+" and idnumera in ( select idnumera from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
+sqlmatriz(2)=" WHERE puntov = '"+ALLTRIM(p_puntov)+"' and idcomproba in ( select idcomproba from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
 verror=sqlrun(vconeccionF,"upmaximo")
 IF verror=.f.  
     MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de Comprobantes ",0+48+0,"Error")
 ENDIF 
 
+
+*sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
+*sqlmatriz(2)=" WHERE pventa = "+ALLTRIM(STR(v_puntoVenta))+" and idnumera in ( select idnumera from comprobantes where idcomproba = "+STR(p_idcomproba)+" ) "
+*verror=sqlrun(vconeccionF,"upmaximo")
+*IF verror=.f.  
+*    MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de Comprobantes ",0+48+0,"Error")
+*ENDIF 
+
 sqlmatriz(1)="select a.maxnumero as maxnro FROM comprobantes c "
-sqlmatriz(2)="LEFT JOIN compactiv a ON a.idnumera = c.idnumera " 
-sqlmatriz(3)="WHERE c.idcomproba = "+ STR(p_idcomproba) + " AND a.puntov = " + p_puntov
+sqlmatriz(2)=" LEFT JOIN compactiv a ON a.idcomproba = c.idcomproba left join puntosventa pv on a.pventa = pv.pventa" 
+sqlmatriz(3)=" WHERE c.idcomproba = "+ ALLTRIM(STR(p_idcomproba)) + " AND pv.puntov = '" + ALLTRIM(p_puntov)+"'"
 
 verror=sqlrun(vconeccionF,"maximo")
 IF verror=.f.  
@@ -817,4 +827,876 @@ RETURN v_maximo
 
 
 ENDFUNC
+
+* FUNCION PARA TRAER EL MAXIMO ID O INDICE DE UNA TABLA
+* RECIBE COMO PARAMETROS EL CAMPO QUE CONTIENE EL ID O INDICE, EL TIPO DE CAMPO, LA TABLA Y EL VALOR A INCREMENTAR EL ID
+* DEVUELVE EL VALOR INCREMENTADO SEGUN EL PARAMETRO DE INCREMENTO RECIBIDO (SOLO SI ES NUMERO)
+FUNCTION maxnumeroidx
+PARAMETERS p_campoidx, p_tipo, p_tabla, v_incre 
+v_tipoCampo = ""
+
+
+vconeccionF = abreycierracon(0,_SYSSCHEMA)
+
+IF p_tipo = 'I'
+	*INTEGER
+	v_tipocampo = "I"
+	sqlmatriz(1)="UPDATE tablasidx set maxvalori = ( maxvalori + "+ALLTRIM(STR(v_incre))+" ) "
+	sqlmatriz(2)=" WHERE campo = '"+ALLTRIM(p_campoidx)+"' and tabla = '"+ALLTRIM(p_tabla)+"' and tipocampo = '"+ALLTRIM(v_tipocampo)+"'"
+
+	verror=sqlrun(vconeccionF,"idxmaximo")
+	IF verror=.f.  
+	    MESSAGEBOX("Ha Ocurrido un Error en la Actualizacion del maximo Numero de indice ",0+48+0,"Error")
+	    RETURN 
+	ENDIF 
+	
+	*** Vuelvo a buscar para corroborar
+	
+	
+	sqlmatriz(1)="select maxvalori as maxnro FROM tablasidx "
+	sqlmatriz(2)="WHERE campo = '"+ALLTRIM(p_campoidx)+"' and tabla = '"+ALLTRIM(p_tabla)+"' and tipocampo = '"+ALLTRIM(v_tipocampo)+"'" 
+		
+	verror=sqlrun(vconeccionF,"maximo")
+	IF verror=.f.  
+	    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA ddel maximo Numero de indice",0+48+0,"Error")
+	ENDIF 
+
+	* me desconecto	
+	=abreycierracon(vconeccionF,"")
+	v_maximo = IIF(ISNULL(maximo.maxnro),0,maximo.maxnro)
+
+	SELECT maximo
+	USE IN maximo
+
+	RETURN v_maximo
+
+	
+
+ELSE
+	IF p_tipo = 'C'
+		*CHAR
+		v_tipocampo = "C"
+		
+	
+				
+		sqlmatriz(1)="select maxvalorc as maxnro FROM tablasidx "
+		sqlmatriz(3)="WHERE campo = '"+ALLTRIM(p_campoidx)+"' and tabla = '"+ALLTRIM(p_tabla)+"' and tipocampo = '"+ALLTRIM(v_tipocampo)+"'" 
+
+		verror=sqlrun(vconeccionF,"maximo")
+		IF verror=.f.  
+		    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA ddel maximo Numero de indice",0+48+0,"Error")
+		ENDIF 
+
+		* me desconecto	
+		=abreycierracon(vconeccionF,"")
+
+		v_maximo = IIF(ISNULL(maximo.maxnro),"",maximo.maxnro)
+
+		SELECT maximo
+		USE IN maximo
+
+		RETURN v_maximo
+		
+		
+	ELSE
+		
+	ENDIF 
+
+ENDIF 
+
+RETURN -1
+ENDFUNC
  
+
+* FUNCIÓN PARA CARGAR EL SERVICIO
+* PARAMETROS: P_PUNTOVTA, PUNTO DE VENTA DONDE SE VA A AUTORIZAR LOS COMPROBANTES
+
+FUNCTION cargarServicioFE
+	PARAMETERS p_puntoVta
+	v_puntoVta = p_puntoVta
+	Public loBasicHttpBinding_IServicio AS "XML Web Service"
+	* LOCAL loBasicHttpBinding_IServicio AS "MSSOAP.SoapClient30"
+	* Do not remove or alter following line. It is used to support IntelliSense for your XML Web service.
+	*__VFPWSDef__: loBasicHttpBinding_IServicio = http://localhost:8000/?wsdl , Servicio , BasicHttpBinding_IServicio
+	public loException, lcErrorMsg, loWSHandler
+	v_cargado = .F.
+	TRY
+
+		
+		loWSHandler = NEWOBJECT("WSHandler",IIF(VERSION(2)=0,"",HOME()+"FFC\")+"_ws3client.vcx")
+
+		loBasicHttpBinding_IServicio = loWSHandler.SetupClient("http://localhost:8000/?wsdl", "Servicio", "BasicHttpBinding_IServicio")
+		* Call your XML Web service here.  ex: leResult = loBasicHttpBinding_IServicio.SomeMethod()
+		
+	
+
+		*thisform.serviciocargado = .f.
+		****** Inicio el servicio  ***
+
+		respuesta = loBasicHttpBinding_IServicio.iniciarServicio(v_puntoVta)
+
+		IF respuesta = .t.
+
+			*Se cargo el servicio correctamente
+			
+			*thisform.lblComprobanteElec.Caption = "Comp. Electrónico - Servicio: INICIADO"
+			v_cargado = .T.
+		ELSE
+			*El servicio no se cargó correctamente
+
+			*thisform.lblComprobanteElec.Caption = "Comp. Electrónico - Servicio: NO INICIADO"
+			v_cargado = .F.		
+
+		ENDIF 
+	
+	CATCH TO loException
+			lcErrorMsg="Error: "+TRANSFORM(loException.Errorno)+" - "+loException.Message
+			DO CASE
+			CASE VARTYPE(loBasicHttpBinding_IServicio)#"O"
+				* Handle SOAP error connecting to web service
+			CASE !EMPTY(loBasicHttpBinding_IServicio.FaultCode)
+				* Handle SOAP error calling method
+				lcErrorMsg=lcErrorMsg+CHR(13)+loBasicHttpBinding_IServicio.Detail
+			OTHERWISE
+				* Handle other error
+			ENDCASE
+			* Use for debugging purposes
+			MESSAGEBOX(lcErrorMsg)
+			v_cargado = .F.
+		FINALLY
+	ENDTRY
+
+	RETURN v_cargado
+ENDFUNC 
+ 
+ 
+ 
+* FUNCION QUE PERMITE LA CARGA DEL COMPROBANTE AL SERVICIO LOCAL, PARA LUEGO SER AUTORIZADA
+* PARAMETROS: p_idFactura, ID DEL COMPROBANTE A AUTORIZAR
+FUNCTION cargarCompFE
+PARAMETERS p_idFactura
+
+
+	v_servicioCargado = .F.
+	v_compCargado = .F.
+	TRY 
+	
+		v_servicioCargado = loBasicHttpBinding_IServicio.servicioIniciado()
+		
+		IF v_servicioCargado  = .t.
+
+			v_idfactura = p_idFactura
+			
+			**** CARGA COMPROBANTE ***
+
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+			
+			sqlmatriz(1)="Select f.*, a.codigo as codAfip from facturas f left join comprobantes c on f.idcomproba = c.idcomproba "
+			sqlmatriz(2)=" left join afipcompro a on  c.idafipcom = a.idafipcom"
+			sqlmatriz(3)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+			verror=sqlrun(vconeccionF,"factu_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA de la factura a cargar ",0+48+0,"Error")
+			    *thisform.comprobantecargado = .f.
+			    v_compCargado = .F.
+			ENDIF 
+
+			*** Cargo IMpuestos del comprobante agrupados por tipo de impuesto
+			sqlmatriz(1)="Select fi.*,a.codigo as codigoAfip, a.tipo as tipoAfip, a.detalle as detAfip from  facturasimp fi left join impuestos i on fi.impuesto = i.impuesto "
+			sqlmatriz(2)=" left join afipimpuestos a on i.idafipimp = a.idafipimp " 
+			sqlmatriz(3)=" where fi.idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+			verror=sqlrun(vconeccionF,"factImp_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA de los impuestos de las facturas ",0+48+0,"Error")
+			    *thisform.comprobantecargado = .f.
+			    v_compCargado = .F.
+			ENDIF 
+
+			SELECT factu_sql
+
+			v_idComprobante = factu_sql.idfactura
+			*id o tipo?
+			v_tipoComprobante = VAL(factu_sql.codAfip)
+			
+			*Tipo doc = 80, CUIT?
+			*¿Que pasa si es consumidor final?
+
+			IF factu_sql.tipodoc = '80'
+				v_tipoDocCliente = '80'
+				v_nroDocCliente = factu_sql.cuit
+			ELSE 
+				IF factu_sql.tipodoc = '99'
+					v_tipoDocCliente = '99'
+					v_nroDocCliente = factu_sql.cuit
+				ELSE
+					MESSAGEBOX("El tipo de cocumento no es CUIT ",0+48+0,"Error")
+				    
+				    v_compCargado =.F.
+				ENDIF 
+				
+				
+			ENDIF 
+			
+			v_fechaComprobante = factu_sql.fecha
+			v_importeNeto = factu_sql.neto
+			
+			*** OPERACION EXCENTA???
+			v_importeOpEx = 0
+			*Tratamiento de impuestos
+			IF factu_sql.operexenta = "S"
+				v_importeOpEx = 0
+			ELSE
+			
+			ENDIF 
+			
+
+			SELECT * FROM factImp_sql INTO TABLE .\factImp
+			
+			 
+			 
+			
+			v_importeTotalComp = factu_sql.total
+			v_idMoneda = "PES"
+			v_cotizacionMoneda = 1
+		*Concepto se refiere a:
+		*1- Productos
+		*2- Servicios
+		*3- Productos y servicios
+			v_concepto = _SYSCONCEPTOAFIP
+			v_ptoVta = factu_sql.pventa
+
+			v_1 =	loBasicHttpBinding_IServicio.setIDComprobante(v_idComprobante)
+
+			v_2=	loBasicHttpBinding_IServicio.setTipoComprobante(v_tipoComprobante)
+
+			v_3=	loBasicHttpBinding_IServicio.setDocTipoClienteComprobante(v_tipoDocCliente)
+
+			v_4=		loBasicHttpBinding_IServicio.setNroDocClienteComprobante(ALLTRIM(v_nroDocCliente))
+
+			v_5=		loBasicHttpBinding_IServicio.setFechaComprobante(ALLTRIM(v_fechaComprobante))
+				
+			 
+			
+			v_totalIVA = 0
+			v_totalTributo = 0
+			SELECT factImp
+			GO TOP
+			DO WHILE  NOT EOF()
+				
+				v_impuesto = factImp.impuesto
+				v_detalle  = factImp.detalle
+				v_importe  = factImp.importe
+				v_neto	   = factImp.neto
+				v_codAfip  = VAL(ALLTRIM(factImp.codigoafip))
+				v_tipoAfip = factImp.tipoAfip
+				v_detAfip  = factImp.detAfip
+
+				DO case
+				
+					CASE v_tipoAfip = "IVA"
+
+						resp = loBasicHttpBinding_IServicio.agregarAlicIva(v_codAfip,v_neto,v_importe)
+					
+						IF resp = .F.
+							MESSAGEBOX("Error al cargar alicuota IVA",0+48+0,"Error")
+						
+						ELSE
+							v_totalIVA = v_totalIVA + v_importe
+					
+						ENDIF 
+						
+						
+					CASE v_tipoAfip = "TRIBUTO"
+					**REVISAR ALICUOTA (0) EN TRIBUTO 
+
+						resp = loBasicHttpBinding_IServicio.agregarTributo(v_codAfip, 0, v_neto, v_detAfip, v_importe)
+					
+						IF resp = .F.
+							MESSAGEBOX("Error al cargar el TRIBUTO",0+48+0,"Error")
+						
+						ELSE
+							v_totalTributo = v_totalTributo + v_importe
+					
+						ENDIF 
+					
+				
+				ENDCASE 
+				
+				
+			
+				SELECT factImp
+				SKIP 1
+			ENDDO  
+
+				v_importeTributo = v_totalTributo
+				v_importeIva = v_totalIVA
+
+					v_6=		loBasicHttpBinding_IServicio.setImporteNetoComprobante(v_importeNeto)
+
+			v_7=		loBasicHttpBinding_IServicio.setImporteOpExComprobante(v_importeOpEx)
+
+			v_8=		loBasicHttpBinding_IServicio.setImporteTributoComprobante(v_importeTributo)
+
+			v_9=		loBasicHttpBinding_IServicio.setImporteIvaComprobante(v_importeIva)
+
+			v_10 = 		loBasicHttpBinding_IServicio.setImporteTotalComprobante(v_importeTotalComp)
+
+			v_11=		loBasicHttpBinding_IServicio.setIDMonedaComprobante(ALLTRIM(v_idMoneda))
+
+			v_12=		loBasicHttpBinding_IServicio.setCotizacionMonedaComprobante(v_cotizacionMoneda)
+
+			v_13=		loBasicHttpBinding_IServicio.setConceptoComprobante(v_concepto)
+
+			v_14 =			loBasicHttpBinding_IServicio.setPtoVtaComprobante(v_ptoVta)
+
+			v_estadoComp =	loBasicHttpBinding_IServicio.comprobanteCargado()
+			IF v_estadoComp = .T.
+			
+				v_compCargado =.T.
+			ELSE
+			
+			    v_compCargado =	.F.
+
+			ENDIF 
+
+		ELSE
+			  MESSAGEBOX("El servicio de autorización no está Iniciado",0+48+0,"Error")
+
+			    v_compCargado = .F.
+		ENDIF 
+	CATCH TO loException
+		lcErrorMsg="Error: "+TRANSFORM(loException.Errorno)+" - "+loException.Message
+		DO CASE
+			CASE VARTYPE(loBasicHttpBinding_IServicio)#"O"
+				* Handle SOAP error connecting to web service
+			CASE !EMPTY(loBasicHttpBinding_IServicio.FaultCode)
+				* Handle SOAP error calling method
+				lcErrorMsg=lcErrorMsg+CHR(13)+loBasicHttpBinding_IServicio.Detail
+			OTHERWISE
+				* Handle other error
+			ENDCASE
+			* Use for debugging purposes
+			MESSAGEBOX(lcErrorMsg,0+48+0,"Se produjo un Error")
+			v_compCargado = .F.
+		FINALLY
+	ENDTRY
+	RETURN v_compCargado
+ENDFUNC 
+
+
+
+
+
+* FUNCIÓN QUE AUTORIZA EL COMPROBANTE CARGADO EN EL SERVICIO Y QUE SEA EL QUE SE LE INDICA COMO PARÁMETRO
+* PARAMETRO: P_IDFACTURA, ID DEL COMPROBANTE A AUTORIZAR
+FUNCTION autorizarCompFE
+PARAMETERS p_idFactura
+	v_idAutorizar = p_idfactura
+	v_autorizado = .F.
+	v_servicioCargado = .F.
+	v_estadoComp = .F.
+		v_nro = "0"
+	TRY 
+
+		v_servicioCargado = loBasicHttpBinding_IServicio.servicioIniciado()
+
+		v_estadoComp =	loBasicHttpBinding_IServicio.comprobanteCargado()
+
+		v_fechaComp = loBasicHttpBinding_IServicio.getFechaComprobante()
+		
+		CATCH TO loException
+		lcErrorMsg="Error: "+TRANSFORM(loException.Errorno)+" - "+loException.Message
+		DO CASE
+		CASE VARTYPE(loBasicHttpBinding_IServicio)#"O"
+			* Handle SOAP error connecting to web service
+		CASE !EMPTY(loBasicHttpBinding_IServicio.FaultCode)
+			* Handle SOAP error calling method
+			lcErrorMsg=lcErrorMsg+CHR(13)+loBasicHttpBinding_IServicio.Detail
+		OTHERWISE
+			* Handle other error
+		ENDCASE
+		* Use for debugging purposes
+		MESSAGEBOX(lcErrorMsg,0+48+0,"Se produjo un Error")
+		v_autorizado = .F.
+	FINALLY
+	ENDTRY
+
+		IF  v_estadoComp  = .T.		
+
+			v_respuesta=loBasicHttpBinding_IServicio.autorizarComprobante(v_idAutorizar)
+	
+	
+		
+			v_estado = SUBSTR(v_respuesta,1,1)
+			v_obsercacion = ""
+			v_error = ""
+			v_codError = ""
+			IF v_estado = "A"
+				*Arpobado
+				*RAAAANNNNNNNNCCCCCCCCCCCCCCFFFFFFFF
+				v_ptoVta =  SUBSTR(v_respuesta,2,4)
+				v_nro =  SUBSTR(v_respuesta,6,8)
+				v_cae =  SUBSTR(v_respuesta,14,14)
+				v_fechavenc =  SUBSTR(v_respuesta,28,8)
+				*FECHA QUE RETORNA ES FECHAVENC?
+				v_obsercacion = ""
+				v_error = ""
+				v_fecha = cftofc(DATE())
+
+				MESSAGEBOX("Comprobante Autorizado: "+ v_ptovta + " - "+v_nro + " CAE: "+v_cae+"Fecha: "+v_fecha,0+64,"Comprobante Autorizado")
+			
+				*** ACTUALIZO EL NUMERO DEL COMPROBANTE EN FACTURAS
+				DIMENSION lamatriz7(1,2)
+				
+				lamatriz7(1,1) = 'numero'
+				lamatriz7(1,2) = ALLTRIM(v_nro)
+				
+				p_tipoope     = 'U'
+				p_condicion   = " idfactura = " + ALLTRIM(STR(v_idAutorizar))
+				v_titulo      = " LA MODIFICACIÓN "		
+				p_tabla     = 'facturas'
+				p_matriz    = 'lamatriz7'
+				p_conexion  = vconeccionF
+				IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
+				    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
+				ENDIF  
+				
+				
+				
+				*** ACTUALIZO EL MAXIMO NUMERO EN COMPACTIV ***
+				
+				*Busco el pventa e idcomproba de la factura
+				vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+			
+				sqlmatriz(1)="Select idcomproba, pventa from facturas "
+				sqlmatriz(2)=" where idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+				verror=sqlrun(vconeccionF,"comPvta_sql")
+				IF verror=.f.  
+				    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA de comprobante y pventa de la factura ",0+48+0,"Error")
+
+				ENDIF 
+				
+				SELECT comPvta_sql
+				GO TOP 
+
+				v_idcomproba 	= comPvta_sql.idcomproba
+				v_pventa		= comPvta_sql.pventa
+				
+				*Actualizo compactiv
+				
+				DIMENSION lamatriz7(1,2)
+				
+				lamatriz7(1,1) = 'maxnumero'
+				lamatriz7(1,2) = ALLTRIM(v_nro)
+				
+				p_tipoope     = 'U'
+				p_condicion   = " idcomproba = " + ALLTRIM(STR(v_idcomproba )) + " and pventa = "+ALLTRIM(STR(v_pventa))
+				v_titulo      = " LA MODIFICACIÓN "		
+				p_tabla     = 'compactiv'
+				p_matriz    = 'lamatriz7'
+				p_conexion  = vconeccionF
+				IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
+				    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
+				ENDIF  
+							
+			ELSE
+
+				IF v_estado = "R"
+					*Rechazado
+					v_respuesta =  SUBSTR(v_respuesta,2)
+					MESSAGEBOX("Comprobante Rechazado: "+ v_respuesta,0+48+0,"Comprobante Rechazado")
+					v_ptoVta = ""
+					v_nro = ""
+					v_cae = ""
+					v_fechavenc =""
+					
+					*¿La respuesta va en error u observacion¡?
+					v_error = ""
+					v_observacion  = V_respuesta 
+					*¿Falta codigo de error?
+					v_codErro = ""
+				ELSE
+					*Indefinido
+					MESSAGEBOX("Respuesta desconocida",0+48+0,"Error al Autorizar")
+
+				ENDIF 
+			ENDIF 
+			
+				
+			
+			*** Guardar datos en facturasFe
+			DIMENSION lamatriz8(13,2)
+			
+			v_idfe = maxnumeroidx("idfe","I","facturasfe",1)
+			
+			lamatriz8(1,1)='idfe'
+			lamatriz8(1,2)= ALLTRIM(STR(v_idfe))
+			lamatriz8(2,1)='idfactura'
+			lamatriz8(2,2)= ALLTRIM(STR(v_idAutorizar))
+			lamatriz8(3,1)='fecha'
+			*lamatriz8(3,2)= "'"+ALLTRIM(cftofc(thisform.tb_fecha.Value))+"'"
+			*Fecha de la factura
+			lamatriz8(3,2)= "'"+ALLTRIM(v_fechaComp)+"'"
+			lamatriz8(4,1)='resultado'
+			lamatriz8(4,2)= "'"+ALLTRIM(v_estado)+"'"
+			lamatriz8(5,1)='caecesp'
+			lamatriz8(5,2)= "'"+ALLTRIM(v_cae)+"'"
+			lamatriz8(6,1)='caecespven'
+			lamatriz8(6,2)= "'"+ALLTRIM(v_fechavenc)+"'"
+			*Fecha desde CESP
+			lamatriz8(7,1)='caecespfec'
+			lamatriz8(7,2)= "''"
+			lamatriz8(8,1)='pathpdffe'
+			lamatriz8(8,2)= "''"
+			* idtipo comprobante afip
+			lamatriz8(9,1)='idtipofe'
+			lamatriz8(9,2)= "0"
+			lamatriz8(10,1)='idtranafip'
+			lamatriz8(10,2)= "0"
+			*Descripción del error
+			lamatriz8(11,1)='observa'
+			lamatriz8(11,2)= "''"
+			*Codigo del error
+			lamatriz8(12,1)='coderror'
+			lamatriz8(12,2)= "'"+v_codError+"'"
+				*¿ Que va aca?
+			lamatriz8(13,1)='numerofe'
+			lamatriz8(13,2)=  v_nro
+
+
+		*** Creo siempre un nuevo registro para idfe?
+			p_tipoope     = 'I'
+			p_condicion   = ''
+			v_titulo      = " EL ALTA "
+
+			p_tabla     = 'facturasfe'
+			p_matriz    = 'lamatriz8'
+			p_conexion  = vconeccionF
+			IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
+			    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
+			    
+			    v_autorizado =.F.
+			ENDIF  
+		
+				v_autorizado =.T.
+		
+		ELSE
+		
+			MESSAGEBOX("El servicio no está iniciado o el comprobante no está cargado",0+48+0,"Error")
+			    
+			v_autorizado =.F.
+		
+		
+		ENDIF 
+		
+	RETURN v_autorizado  
+
+ENDFUNC 
+
+* FUNCIÓN PARA AUTORIZAR COMPROBANTES
+* PARAMETROS: P_PUNTOVTA, PUNTO DE VTA DEL COMPROBANTE; P_IDFACTURA, ID DEL COMPROBANTE A AUTORIZAR
+FUNCTION autorizarFE
+PARAMETERS p_puntoVta, p_idFactura
+
+v_puntoVta = p_puntoVta
+v_idfactura= p_idFactura
+v_autorizar = .F.
+
+	TRY 
+
+
+	v_servicioCargado = loBasicHttpBinding_IServicio.servicioIniciado()
+	
+	*v_estadoComp =	loBasicHttpBinding_IServicio.comprobanteCargado()
+
+		IF v_servicioCargado  = .F.
+		
+			*El servicio no está cargado
+			*Intenta cargar
+			v_servicioCargado = cargarServicioFE(v_puntoVta)
+			
+			IF v_servicioCargado  = .F.
+				*Comprueba y no está cargado
+				MESSAGEBOX("El servicio para autorizar comprobantes electrónicos no está disponible",0+48+0,"Error al autorizar")
+				v_autorizar = .F.
+			ENDIF  
+			
+
+		ENDIF 
+	CATCH TO loException
+			lcErrorMsg="Error: "+TRANSFORM(loException.Errorno)+" - "+loException.Message
+			DO CASE
+			CASE VARTYPE(loBasicHttpBinding_IServicio)#"O"
+				* Handle SOAP error connecting to web service
+			CASE !EMPTY(loBasicHttpBinding_IServicio.FaultCode)
+				* Handle SOAP error calling method
+				lcErrorMsg=lcErrorMsg+CHR(13)+loBasicHttpBinding_IServicio.Detail
+			OTHERWISE
+				* Handle other error
+			ENDCASE
+			* Use for debugging purposes
+			MESSAGEBOX(lcErrorMsg,0+48+0,"Se produjo un Error")
+			v_autorizar = .F.
+		FINALLY
+	ENDTRY	
+		
+		IF v_servicioCargado = .T.
+			***COMPRUEBO QUE EL COMPROBANTE NO ESTÉ AUTORIZADO
+	
+			vconeccion=abreycierracon(0,_SYSSCHEMA)	
+				
+				sqlmatriz(1)="Select * from facturasfe "
+				sqlmatriz(2)=" where idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+				verror=sqlrun(vconeccion,"factufe_sql")
+				IF verror=.f.  
+				    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA de la facturasFE",0+48+0,"Error")
+				    v_autorizar = .F.
+				ELSE
+				
+					SELECT factufe_sql
+					GO TOP 
+					
+					DO WHILE NOT EOF()
+						
+						v_resultado = factufe_fe.resultado
+						v_caecesp 	= factufe_fe.caecesp
+						
+						IF v_resultado = "A" OR v_caecesp <> ""
+						
+							MESSAGEBOX("El comprobante ID: "+ALLTRIM(STR(v_idfactura))+" ya se encuentra autorizado",0+48+0,"Error al autorizar")
+							v_autorizar = .F.
+							RETURN v_autorizar
+						ENDIF 
+						
+						SELECT factu_fe
+						SKIP 1
+					
+					ENDDO 
+				ENDIF 
+
+
+			*Carga el comprobante en el servicio para autorizar
+			*thisform.cargarcomprobantefe
+
+
+				
+			v_comprobanteCargado = cargarcompFE(v_idfactura)
+			IF v_comprobanteCargado = .t.
+					*Intenta autorizar el comprobante cargado en el servicio
+				*thisform.autorizarcomprobantefe
+
+
+				v_comprobanteAutorizado = autorizarCompFE(v_idfactura)
+				
+				IF v_comprobanteAutorizado  = .T.
+				
+					v_autorizar = .T.
+					
+					
+					
+					
+					
+				ELSE
+					MESSAGEBOX("Ha Ocurrido un Error al autorizar el comprobante en el servicio ",0+48+0,"Error")
+				    
+				    v_autorizar = .F.
+				
+				ENDIF 
+				
+				
+			ELSE
+
+			    MESSAGEBOX("Ha Ocurrido un Error al cargar el comprobante en el servicio ",0+48+0,"Error")
+			    
+			    v_autorizar = .F.
+			
+			ENDIF 
+		ENDIF 
+
+			
+
+		
+
+	RETURN v_autorizar
+
+	
+
+ENDFUNC 
+
+* FUNCIÓN PARA IMPRIMIR UNA FACTURA (COMPROBANTES DE LA TABLA FACTURA: FACTURA, NC, ND)
+* PARAMETROS: P_IDFACTURA, P_ESELECTRONICA
+FUNCTION imprimirFactura
+PARAMETERS p_idFactura, p_esElectronica
+
+
+	v_idfactura = p_idFactura
+	v_esElectronica = p_esElectronica 
+
+	IF v_idfactura > 0
+		
+		*** Busco los datos de la factura y el detalle
+		IF v_esElectronica  = .T.
+
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+		
+
+			sqlmatriz(1)="Select *,c.detalle as detIVA, v.nombre as nomVend from facturas f left join detafactu d on f.idfactura = d.idfactura " 
+			sqlmatriz(2)=" left join facturasfe fe on f.idfactura = fe.idfactura left join condfiscal c on f.iva = c.iva"
+			sqlmatriz(3)=" left join vendedores v on f.vendedor = v.vendedor"
+			sqlmatriz(4)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))+ " and fe.resultado = 'A'"
+			
+			verror=sqlrun(vconeccionF,"fac_det_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			ENDIF
+		
+		ELSE
+			
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+		
+			sqlmatriz(1)="Select *,c.detalle as detIVA from facturas f left join detafactu d on f.idfactura = d.idfactura " 
+			sqlmatriz(2)=" left join condfiscal c on f.iva = c.iva"
+			sqlmatriz(3)=" left join vendedores v on f.vendedor = v.vendedor"
+			sqlmatriz(4)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+			verror=sqlrun(vconeccionF,"fac_det_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			ENDIF
+		
+		ENDIF 
+		
+		
+		*** Busco los datos de los impuestos
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+		
+			sqlmatriz(1)="Select fi.detalle as detaIMP, fi.neto as netoIMP, fi.razon as razonIMP, fi.importe as importeIMP, ai.tipo as tipoIMP "
+			sqlmatriz(2)=" from facturasimp fi" 
+			sqlmatriz(3)=" left join impuestos i on fi.impuesto = i.impuesto "
+			sqlmatriz(4)=" left join afipimpuestos ai on i.idafipimp = ai.idafipimp "
+			sqlmatriz(5)=" where fi.idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+			verror=sqlrun(vconeccionF,"impuestos_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			ENDIF
+		
+
+		SELECT * FROM fac_det_sql INTO TABLE .\factu
+		
+		SELECT * FROM impuestos_sql INTO TABLE .\ImpIVA WHERE ALLTRIM(tipoIMP) = "IVA"
+		
+		SELECT * FROM impuestos_sql INTO TABLE .\ImpTRIB WHERE ALLTRIM(tipoIMP) = "TRIBUTO"
+		
+		SELECT factu
+		
+		IF NOT EOF()
+		
+			v_idcomproba = factu.idcomproba
+			DO FORM reporteform WITH "factu;impIva;impTRIB","facturasrc;impIVArc;impTRIBrc",v_idcomproba
+			
+		ELSE
+			MESSAGEBOX("Error al cargar la factura para imprimir",0+48+0,"Error al cargar la factura")
+			RETURN 	
+		ENDIF 
+		
+		
+
+	ELSE
+		MESSAGEBOX("NO se pudo recuperar la factura ID <= 0",0+16,"Error al imprimir")
+		RETURN 
+
+	ENDIF 
+
+ENDFUNC 
+
+
+* FUNCIÓN PARA IMPRIMIR RECIBO
+* PARAMETROS: P_IDRECIBO
+FUNCTION imprimirRecibo
+PARAMETERS p_idRecibo
+
+
+	v_idrecibo = p_idrecibo
+	
+	IF v_idrecibo > 0
+		
+		*** Busco los datos de la factura y el detalle
+		IF v_esElectronica  = .T.
+
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+		
+
+			sqlmatriz(1)="Select *,c.detalle as detIVA, v.nombre as nomVend from facturas f left join detafactu d on f.idfactura = d.idfactura " 
+			sqlmatriz(2)=" left join facturasfe fe on f.idfactura = fe.idfactura left join condfiscal c on f.iva = c.iva"
+			sqlmatriz(3)=" left join vendedores v on f.vendedor = v.vendedor"
+			sqlmatriz(4)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))+ " and fe.resultado = 'A'"
+			
+			verror=sqlrun(vconeccionF,"fac_det_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			ENDIF
+		
+		ELSE
+			
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+		
+			sqlmatriz(1)="Select *,c.detalle as detIVA from facturas f left join detafactu d on f.idfactura = d.idfactura " 
+			sqlmatriz(2)=" left join condfiscal c on f.iva = c.iva"
+			sqlmatriz(3)=" left join vendedores v on f.vendedor = v.vendedor"
+			sqlmatriz(4)=" where f.idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+			verror=sqlrun(vconeccionF,"fac_det_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			ENDIF
+		
+		ENDIF 
+		
+		
+		*** Busco los datos de los impuestos
+			vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+		
+			sqlmatriz(1)="Select fi.detalle as detaIMP, fi.neto as netoIMP, fi.razon as razonIMP, fi.importe as importeIMP, ai.tipo as tipoIMP "
+			sqlmatriz(2)=" from facturasimp fi" 
+			sqlmatriz(3)=" left join impuestos i on fi.impuesto = i.impuesto "
+			sqlmatriz(4)=" left join afipimpuestos ai on i.idafipimp = ai.idafipimp "
+			sqlmatriz(5)=" where fi.idfactura = "+ ALLTRIM(STR(v_idfactura))
+
+			verror=sqlrun(vconeccionF,"impuestos_sql")
+			IF verror=.f.  
+			    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA  de la factura",0+48+0,"Error")
+			ENDIF
+		
+
+		SELECT * FROM fac_det_sql INTO TABLE .\factu
+		
+		SELECT * FROM impuestos_sql INTO TABLE .\ImpIVA WHERE ALLTRIM(tipoIMP) = "IVA"
+		
+		SELECT * FROM impuestos_sql INTO TABLE .\ImpTRIB WHERE ALLTRIM(tipoIMP) = "TRIBUTO"
+		
+		SELECT factu
+		
+		IF NOT EOF()
+		
+			v_idcomproba = factu.idcomproba
+			DO FORM reporteform WITH "factu;impIva;impTRIB","facturasrc;impIVArc;impTRIBrc",v_idcomproba
+			
+		ELSE
+			MESSAGEBOX("Error al cargar la factura para imprimir",0+48+0,"Error al cargar la factura")
+			RETURN 	
+		ENDIF 
+		
+		
+
+	ELSE
+		MESSAGEBOX("NO se pudo recuperar el recibo el ID <= 0",0+16,"Error al imprimir")
+		RETURN 
+
+	ENDIF 
+
+ENDFUNC 
