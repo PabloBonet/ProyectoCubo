@@ -1005,3 +1005,210 @@ No se puede obtener acceso a un archivo cerrado.
 [16/3/2018 20:36:20] Comprobante AUTORIZADO (ID 61): 0004 - 00000008. CAE: 68117640042942
 
 
+[17/3/2018 10:15:16] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 10:19:38] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 10:19:38] Comprobante AUTORIZADO (ID 62): 0004 - 00000009. CAE: 68117640049376
+
+
+[17/3/2018 18:52:57] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 18:55:47] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 19:09:33] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 19:11:32] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 19:11:32] Comprobante AUTORIZADO (ID 64): 0004 - 00000010. CAE: 68117640055812
+
+
+[17/3/2018 19:39:58] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 19:42:28] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 19:42:28] Comprobante AUTORIZADO (ID 65): 0004 - 00000011. CAE: 68117640056017
+
+
+[17/3/2018 20:06:17] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 20:07:49] Ticket de Acceso obtenido, válido hasta: 17/3/2018 22:15:17
+
+
+[17/3/2018 20:08:18] Comprobante AUTORIZADO (ID 67): 0003 - 00000050. CAE: 68117640056135
+
+
+[20/3/2018 20:25:54] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 20:31:45] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 20:34:34] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 20:36:07] Comprobante AUTORIZADO (ID 68): 0003 - 00000051. CAE: 68127640325435
+
+
+[20/3/2018 20:40:07] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 21:05:26] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 21:05:45] Comprobante AUTORIZADO (ID 70): 0003 - 00000052. CAE: 68127640329879
+
+
+[20/3/2018 21:08:16] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 21:28:12] Comprobante AUTORIZADO (ID 71): 0003 - 00000053. CAE: 68127640331777
+
+
+[20/3/2018 21:31:47] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 21:35:24] Ticket de Acceso obtenido, válido hasta: 21/3/2018 08:25:55
+
+
+[20/3/2018 21:36:05] Comprobante AUTORIZADO (ID 73): 0003 - 00000054. CAE: 68127640332503
+
+
+[21/3/2018 19:31:02] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 19:44:13] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 19:50:01] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 19:56:45] Comprobante AUTORIZADO (ID 76): 0003 - 00000055. CAE: 68127640449592
+
+
+[21/3/2018 19:57:06] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 19:57:24] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 19:59:01] Comprobante AUTORIZADO (ID 77): 0003 - 00000056. CAE: 68127640449827
+
+
+[21/3/2018 20:11:23] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 20:12:24] Comprobante AUTORIZADO (ID 78): 0003 - 00000057. CAE: 68127640451149
+
+
+[21/3/2018 20:18:57] Ticket de Acceso obtenido, válido hasta: 22/3/2018 07:31:04
+
+
+[21/3/2018 20:19:44] Comprobante AUTORIZADO (ID 79): 0003 - 00000058. CAE: 68127640451916
+
+
+[22/3/2018 19:53:31] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 19:54:28] Comprobante AUTORIZADO (ID 80): 0003 - 00000059. CAE: 68127640576650
+
+
+[22/3/2018 20:02:17] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:03:19] Comprobante AUTORIZADO (ID 81): 0003 - 00000060. CAE: 68127640577651
+
+
+[22/3/2018 20:05:34] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:06:57] Comprobante AUTORIZADO (ID 82): 0003 - 00000061. CAE: 68127640578021
+
+
+[22/3/2018 20:12:24] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:13:33] Comprobante AUTORIZADO (ID 83): 0003 - 00000062. CAE: 68127640578712
+
+
+[22/3/2018 20:16:19] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:16:42] Comprobante AUTORIZADO (ID 84): 0003 - 00000063. CAE: 68127640578929
+
+
+[22/3/2018 20:18:46] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:23:27] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:32:00] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[22/3/2018 20:32:50] Comprobante AUTORIZADO (ID 87): 0003 - 00000064. CAE: 68127640580301
+
+
+[22/3/2018 20:36:20] Ticket de Acceso obtenido, válido hasta: 23/3/2018 07:53:31
+
+
+[24/3/2018 09:22:33] Ticket de Acceso obtenido, válido hasta: 24/3/2018 21:22:33
+
+
+[24/3/2018 09:22:34] Ticket de Acceso obtenido, válido hasta: 24/3/2018 21:22:33
+
+
+[24/3/2018 09:23:53] Comprobante AUTORIZADO (ID 89): 0003 - 00000065. CAE: 68127640884746
+
+
+[24/3/2018 09:24:34] Ticket de Acceso obtenido, válido hasta: 24/3/2018 21:22:33
+
+
+[24/3/2018 09:28:16] Comprobante AUTORIZADO (ID 90): 0003 - 00000066. CAE: 68127640884953
+
+
+[26/3/2018 21:31:46] Ticket de Acceso obtenido, válido hasta: 27/3/2018 09:31:47
+
+
+[26/3/2018 21:32:15] Ticket de Acceso obtenido, válido hasta: 27/3/2018 09:31:47
+
+
+[26/3/2018 21:34:32] Ticket de Acceso obtenido, válido hasta: 27/3/2018 09:31:47
+
+
+[26/3/2018 21:36:41] Ticket de Acceso obtenido, válido hasta: 27/3/2018 09:31:47
+
+
+[28/3/2018 19:42:56] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:46:30] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:49:11] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:49:38] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:51:39] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:53:35] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:56:40] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+
+[28/3/2018 19:58:46] Ticket de Acceso obtenido, válido hasta: 29/3/2018 07:42:58
+
+

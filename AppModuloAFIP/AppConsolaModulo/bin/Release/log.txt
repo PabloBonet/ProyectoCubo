@@ -1,0 +1,42 @@
+[17/3/2018 10:14:47] Se produjo un error al cargar la configuración: No se pudo encontrar el archivo 'C:\Users\pablo\Documents\Visual Studio 2015\Projects\AppModuloAFIP\AppConsolaModulo\bin\Release\config.xml'.
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 1
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 2
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 3
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 4
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 5
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 6
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 7
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 8
+
+
+[17/3/2018 10:14:47] ***EXCEPCION AL CARGAR TICKET: [ObtenerLoginTicketResponse]***Error FIRMANDO el LoginTicketRequest : [ObtieneCertificadoDesdeArchivo]***Error al leer certificado: No se puede dejar vacío el nombre de la ruta de acceso.
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intento: 9
+
+
+[17/3/2018 10:14:47] No se pudo obtener el Ticket de acceso (Intentos excedidos)
+
+
