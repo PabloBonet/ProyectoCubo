@@ -836,6 +836,9 @@ ENDFUNC
 FUNCTION maxnumerocom
 PARAMETERS p_idcomproba, p_pventa, v_incre 
 
+	compruebaCajaReca()
+
+
 vconeccionF = abreycierracon(0,_SYSSCHEMA)
 
 *sqlmatriz(1)="UPDATE compactiv set maxnumero = ( maxnumero + "+ALLTRIM(STR(v_incre))+" ) "
@@ -1713,5 +1716,68 @@ PARAMETERS p_idRecibo
 		RETURN 
 
 	ENDIF 
+
+ENDFUNC 
+
+
+FUNCTION compruebaCajaReca
+
+*** Controlo que se haya seleccionado una caja de recaudación 
+
+IF _SYSCAJARECA = 0 && No hay caja seleccionada, pide caja
+
+	v_idcajareca = 0
+	
+	DO FORM selectcajareca  TO v_idcajareca
+	
+	IF v_idcajareca > 0
+	
+		_SYSCAJARECA = v_idcajareca
+	ENDIF 
+
+ENDIF 
+
+
+ENDFUNC 
+
+* ACTUALIZO CAJARECAUDAH CON EL COMPROBANTE GUARDADO
+* PARAMETROS: P_idComp: id comprobante; P_idReg: ID del registro
+FUNCTION guardaCajaRecaH 
+PARAMETERS p_idComp, p_idReg
+				
+		v_idcajarecaudah = maxnumeroidx("idcajareh","I","cajarecaudah",1)
+
+		v_idcajareca 	= _SYSCAJARECA
+		v_usuario		= _SYSUSUARIO
+		v_idcomproba	= p_idComp
+		v_idregicomp	=  p_idReg
+
+		DIMENSION lamatriz3(5,2)
+		
+			
+		lamatriz3(1,1)='idcajareh'
+		lamatriz3(1,2)= ALLTRIM(STR(v_idcajarecaudah ))
+		lamatriz3(2,1)='idcajareca'
+		lamatriz3(2,2)= ALLTRIM(STR(v_idcajareca ))
+		lamatriz3(3,1)='usuario'
+		lamatriz3(3,2)= "'"+ALLTRIM(v_usuario)+"'"
+		lamatriz3(4,1)='idcomproba'
+		lamatriz3(4,2)= ALLTRIM(v_idcomproba)
+		lamatriz3(5,1)='idregicomp'
+		lamatriz3(5,2)= ALLTRIM(STR(v_idregicomp))
+		
+			
+		p_tipoope     = 'I'
+		p_condicion   = ''
+		v_titulo      = " EL ALTA "
+		p_tabla     = 'cajarecaudah'
+		p_matriz    = 'lamatriz3'
+		p_conexion  = vconeccionF
+		IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
+		    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
+		    RETURN .F.
+		ENDIF	
+	
+		RETURN .T.
 
 ENDFUNC 
