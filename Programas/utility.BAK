@@ -1198,6 +1198,7 @@ PARAMETERS p_idFactura
 			v_9=		loBasicHttpBinding_IServicio.setImporteIvaComprobante(v_importeIva)
 
 			v_10 = 		loBasicHttpBinding_IServicio.setImporteTotalComprobante(v_importeTotalComp)
+			
 
 			v_11=		loBasicHttpBinding_IServicio.setIDMonedaComprobante(ALLTRIM(v_idMoneda))
 
@@ -1208,6 +1209,9 @@ PARAMETERS p_idFactura
 			v_14 =			loBasicHttpBinding_IServicio.setPtoVtaComprobante(v_ptoVta)
 
 			v_estadoComp =	loBasicHttpBinding_IServicio.comprobanteCargado()
+			
+					
+			
 			IF v_estadoComp = .T.
 			
 				v_compCargado =.T.
@@ -1283,7 +1287,7 @@ PARAMETERS p_idFactura
 
 			v_respuesta=loBasicHttpBinding_IServicio.autorizarComprobante(v_idAutorizar)
 	
-	
+			v_observacion = ""  
 		
 			v_estado = SUBSTR(v_respuesta,1,1)
 			v_obsercacion = ""
@@ -1304,59 +1308,59 @@ PARAMETERS p_idFactura
 				MESSAGEBOX("Comprobante Autorizado: "+ v_ptovta + " - "+v_nro + " CAE: "+v_cae+"Fecha: "+v_fecha,0+64,"Comprobante Autorizado")
 			
 				*** ACTUALIZO EL NUMERO DEL COMPROBANTE EN FACTURAS
-				DIMENSION lamatriz7(1,2)
+*				DIMENSION lamatriz7(1,2)
 				
-				lamatriz7(1,1) = 'numero'
-				lamatriz7(1,2) = ALLTRIM(v_nro)
+*				lamatriz7(1,1) = 'numero'
+*				lamatriz7(1,2) = ALLTRIM(v_nro)
 				
-				p_tipoope     = 'U'
-				p_condicion   = " idfactura = " + ALLTRIM(STR(v_idAutorizar))
-				v_titulo      = " LA MODIFICACIÓN "		
-				p_tabla     = 'facturas'
-				p_matriz    = 'lamatriz7'
-				p_conexion  = vconeccionF
-				IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
-				    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
-				ENDIF  
+*				p_tipoope     = 'U'
+*				p_condicion   = " idfactura = " + ALLTRIM(STR(v_idAutorizar))
+*				v_titulo      = " LA MODIFICACIÓN "		
+*				p_tabla     = 'facturas'
+*				p_matriz    = 'lamatriz7'
+*				p_conexion  = vconeccionF
+*				IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
+*				    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
+*				ENDIF  
 				
 				
 				
 				*** ACTUALIZO EL MAXIMO NUMERO EN COMPACTIV ***
 				
 				*Busco el pventa e idcomproba de la factura
-				vconeccionF=abreycierracon(0,_SYSSCHEMA)	
-			
-				sqlmatriz(1)="Select idcomproba, pventa from facturas "
-				sqlmatriz(2)=" where idfactura = "+ ALLTRIM(STR(v_idfactura))
-
-				verror=sqlrun(vconeccionF,"comPvta_sql")
-				IF verror=.f.  
-				    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA de comprobante y pventa de la factura ",0+48+0,"Error")
-
-				ENDIF 
-				
-				SELECT comPvta_sql
-				GO TOP 
-
-				v_idcomproba 	= comPvta_sql.idcomproba
-				v_pventa		= comPvta_sql.pventa
-				
-				*Actualizo compactiv
-				
-				DIMENSION lamatriz7(1,2)
-				
-				lamatriz7(1,1) = 'maxnumero'
-				lamatriz7(1,2) = ALLTRIM(v_nro)
-				
-				p_tipoope     = 'U'
-				p_condicion   = " idcomproba = " + ALLTRIM(STR(v_idcomproba )) + " and pventa = "+ALLTRIM(STR(v_pventa))
-				v_titulo      = " LA MODIFICACIÓN "		
-				p_tabla     = 'compactiv'
-				p_matriz    = 'lamatriz7'
-				p_conexion  = vconeccionF
-				IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
-				    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
-				ENDIF  
+*				vconeccionF=abreycierracon(0,_SYSSCHEMA)	
+*			
+*				sqlmatriz(1)="Select idcomproba, pventa from facturas "
+*				sqlmatriz(2)=" where idfactura = "+ ALLTRIM(STR(v_idfactura))
+*
+*				verror=sqlrun(vconeccionF,"comPvta_sql")
+*				IF verror=.f.  
+*				    MESSAGEBOX("Ha Ocurrido un Error en la BÚSQUEDA de comprobante y pventa de la factura ",0+48+0,"Error")
+*
+*				ENDIF 
+*				
+*				SELECT comPvta_sql
+*				GO TOP 
+*
+*				v_idcomproba 	= comPvta_sql.idcomproba
+*				v_pventa		= comPvta_sql.pventa
+*				
+*				*Actualizo compactiv
+*				
+*				DIMENSION lamatriz7(1,2)
+*				
+*				lamatriz7(1,1) = 'maxnumero'
+*				lamatriz7(1,2) = ALLTRIM(v_nro)
+*				
+*				p_tipoope     = 'U'
+*				p_condicion   = " idcomproba = " + ALLTRIM(STR(v_idcomproba )) + " and pventa = "+ALLTRIM(STR(v_pventa))
+*				v_titulo      = " LA MODIFICACIÓN "		
+*				p_tabla     = 'compactiv'
+*				p_matriz    = 'lamatriz7'
+*				p_conexion  = vconeccionF
+*				IF SentenciaSQL(p_tabla,p_matriz,p_tipoope,p_condicion,p_conexion) = .F.  
+*				    MESSAGEBOX("Ha Ocurrido un Error en "+v_titulo+" "+ALLTRIM(STR(v_numero)),0+48+0,"Error")
+*				ENDIF  
 							
 			ELSE
 
@@ -1414,7 +1418,7 @@ PARAMETERS p_idFactura
 			lamatriz8(10,2)= "0"
 			*Descripción del error
 			lamatriz8(11,1)='observa'
-			lamatriz8(11,2)= "''"
+			lamatriz8(11,2)= "'"+ALLTRIM(v_observacion)+"'"
 			*Codigo del error
 			lamatriz8(12,1)='coderror'
 			lamatriz8(12,2)= "'"+v_codError+"'"
@@ -1740,8 +1744,8 @@ ENDIF
 
 ENDFUNC 
 
-*** ACTUALIZO CAJARECAUDAH CON EL COMPROBANTE GUARDADO  ***
-
+* ACTUALIZO CAJARECAUDAH CON EL COMPROBANTE GUARDADO
+* PARAMETROS: P_idComp: id comprobante; P_idReg: ID del registro
 FUNCTION guardaCajaRecaH 
 PARAMETERS p_idComp, p_idReg
 				
@@ -1762,7 +1766,7 @@ PARAMETERS p_idComp, p_idReg
 		lamatriz3(3,1)='usuario'
 		lamatriz3(3,2)= "'"+ALLTRIM(v_usuario)+"'"
 		lamatriz3(4,1)='idcomproba'
-		lamatriz3(4,2)= ALLTRIM(v_idcomproba)
+		lamatriz3(4,2)= ALLTRIM(STR(v_idcomproba))
 		lamatriz3(5,1)='idregicomp'
 		lamatriz3(5,2)= ALLTRIM(STR(v_idregicomp))
 		
