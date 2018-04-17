@@ -1842,3 +1842,16 @@ FUNCTION copydocu
 	
 RETURN a_archivo
 ENDFUNC 
+
+*** Función que recibe un numero decimal y retorna el RGB equivalente, en una cadena de texto
+FUNCTION decimalARGB
+PARAMETERS p_numDecimal
+
+*v_num = p_numDecimal
+
+*v_retorno = ALLTRIM(STR(INT(VAL('0x'+RIGHT(TRANSFORM(v_num , '@0'),2)))))+ALLTRIM(STR(INT(VAL('0x'+SUBSTR(TRANSFORM(v_num, '@0'),7,2)))))+ALLTRIM(STR(INT(VAL('0x'+SUBSTR(TRANSFORM(v_num , '@0'),5,2))))
+
+
+*RETURN v_retorno
+
+ENDFUNC 
