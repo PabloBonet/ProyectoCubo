@@ -1847,11 +1847,24 @@ ENDFUNC
 FUNCTION decimalARGB
 PARAMETERS p_numDecimal
 
-*v_num = p_numDecimal
+v_num = p_numDecimal
+
+v_cad1 = ""
+v_cad2 = ""
+v_cad3 = ""
+
+v_cad1 = ALLTRIM(STRTRAN(STR(INT(VAL('0x'+RIGHT(TRANSFORM(v_num , '@0'),2))),3,0)," ","0"))
+
+v_cad2= ALLTRIM(STRTRAN(STR(INT(VAL('0x'+SUBSTR(TRANSFORM(v_num, '@0'),7,2))),3,0)," ","0"))
+
+v_cad3 = ALLTRIM(STRTRAN(STR(INT(VAL('0x'+SUBSTR(TRANSFORM(v_num , '@0'),5,2))),3,0)," ","0"))
+
+v_retorno = v_cad1 + v_cad2 + v_cad3
+
 
 *v_retorno = ALLTRIM(STR(INT(VAL('0x'+RIGHT(TRANSFORM(v_num , '@0'),2)))))+ALLTRIM(STR(INT(VAL('0x'+SUBSTR(TRANSFORM(v_num, '@0'),7,2)))))+ALLTRIM(STR(INT(VAL('0x'+SUBSTR(TRANSFORM(v_num , '@0'),5,2))))
 
 
-*RETURN v_retorno
+RETURN v_retorno
 
 ENDFUNC 
