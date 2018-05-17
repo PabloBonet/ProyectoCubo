@@ -1767,11 +1767,11 @@ PARAMETERS p_idMoviStockP
 		*** Busco los datos del movimiento y el detalle
 		
 		
-			sqlmatriz(1)="Select p.*,h.*, e.apellido, e.nombre, e.compania, e.cuit, m.codigomat, m.detalle as detMat, m.unidad as uniMat, t.descmov, t.ie, d.detalle as detDepo "
-			sqlmatriz(2)=" from movistockp p left join movistockh h on p.idmovip = h.idmovip " 
-			sqlmatriz(3)=" left join entidads e on p.entidad = e.entidad "
-			sqlmatriz(4)=" left join otmateriales m on h.idmate = m.idmate "
-			sqlmatriz(5)=" left join ottiposmovi t on h.idtipomov = t.idtipomov "
+			sqlmatriz(1)="Select p.*,h.*, e.apellido as apellEnt, e.nombre as nomEnt, e.compania, e.cuit, e.direccion, t.ie,t.reporte, d.detalle as detDepo "
+			sqlmatriz(2)=" from otmovistockp p left join otmovistockh h on p.idmovip = h.idmovip " 
+			sqlmatriz(3)=" left join entidades e on p.entidad = e.entidad "
+			*sqlmatriz(4)=" left join otmateriales m on h.idmate = m.idmate "
+			sqlmatriz(5)=" left join tipomstock t on h.idtipomov = t.idtipomov "
 			sqlmatriz(6)=" left join otdepositos d on h.iddepo = d.iddepo "
 			sqlmatriz(7)=" where p.idmovip = "+ ALLTRIM(STR(v_idmovip))
 
@@ -1793,7 +1793,7 @@ PARAMETERS p_idMoviStockP
 		IF NOT EOF()
 		
 			
-			DO FORM reporteform WITH "otmoviImpr","otmovicr","otmovistock"
+			DO FORM reporteform WITH "otmoviImpr","movistockcr","otmovistock"
 			
 			
 		ELSE
