@@ -1793,7 +1793,7 @@ PARAMETERS p_idMoviStockP
 		IF NOT EOF()
 		
 			
-			DO FORM reporteform WITH "otmoviImpr","otmovicr","otmovistock"
+			DO FORM reporteform WITH "otmoviImpr","movistockcr","otmovistock"
 			
 			
 		ELSE

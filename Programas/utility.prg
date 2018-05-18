@@ -586,8 +586,8 @@ FUNCTION copyimg
 				new_nuevo_completo = ALLTRIM(SUBSTR(nuevo_completo,1,(LEN(ALLTRIM(nuevo_completo))-4))+ALLTRIM(STR(v_var))+SUBSTR(nuevo_completo,(LEN(ALLTRIM(nuevo_completo))-3)))
 			ENDDO 
 			nuevo_completo = ALLTRIM(new_nuevo_completo)
-			v_ejecutar = "COPY FILE '"+ALLTRIM(viejo_completo)+"' TO '"+ALLTRIM(nuevo_completo)+"'"
-			MESSAGEBOX(v_ejecutar)
+			
+			v_ejecutar = "COPY FILE (viejo_completo) TO (nuevo_completo)"
 			&v_ejecutar				
 	ENDIF
 
@@ -637,8 +637,7 @@ FUNCTION copydocu
 				new_nuevo_completo = ALLTRIM(SUBSTR(nuevo_completo,1,(LEN(ALLTRIM(nuevo_completo))-4))+ALLTRIM(STR(v_var))+SUBSTR(nuevo_completo,(LEN(ALLTRIM(nuevo_completo))-3)))
 			ENDDO 
 			nuevo_completo = ALLTRIM(new_nuevo_completo)
-			v_ejecutar = "COPY FILE '"+ALLTRIM(viejo_completo)+"' TO '"+ALLTRIM(nuevo_completo)+"'"
-			MESSAGEBOX(v_ejecutar)
+			v_ejecutar = "COPY FILE (viejo_completo) TO (nuevo_completo)"
 			&v_ejecutar				
 	ENDIF
 
